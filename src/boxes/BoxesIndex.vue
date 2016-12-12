@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         <app-nav></app-nav>
 
         <div class="content">
@@ -13,7 +13,16 @@
 </script>
 
 <style scoped>
+    .main {
+         background: url('../assets/fail.jpg') no-repeat center center fixed; 
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100vh; 
+    }
     .content {
         text-align: center;
+        color: black;
     }
 </style>
