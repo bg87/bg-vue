@@ -3,8 +3,7 @@
         <app-nav></app-nav>
 
         <div class="content">
-            <h1>Notebook Index</h1>
-            <p>Some other stuff</p>
+            <h1>This app is under construction.</h1>
         </div>
     </div>
 </template>
