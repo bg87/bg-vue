@@ -1,9 +1,10 @@
 <template>
     <div class="main">
-        <div class="content">
-            <h1>Home</h1>
-            <p>Stuff</p>
-        </section>
+        <app-nav></app-nav>
+
+        <div class="info">
+            <h1>Hello</h1>
+        </div>
     </div>
 </template>
 
@@ -11,6 +12,11 @@
 
 </script>
 
-<style>
-    
+<style scoped> 
+   /* * {
+        border: 1px solid gray;
+    } */
+    .info {
+        text-align: center;
+    }
 </style>
