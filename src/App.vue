@@ -3,9 +3,11 @@
 
     <div id="mySidenav" class="sidenav">
       <a class="closebtn" @click="closeNav()">&times;</a>
-      <a>Home</a>
-      <a>Boxes app</a>
-      <a>Notebook app</a>
+      <div @click="closeNav()">
+        <router-link to="/">Home</router-link>
+        <router-link to="/boxes">Boxes app</router-link>
+        <router-link to="/notebook">Notebook app</router-link>
+      </div>
     </div>
 
     <span class="openNav" @click="openNav()">&#9776;</span>
