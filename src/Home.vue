@@ -22,14 +22,22 @@
 </script>
 
 <style scoped> 
+    .main {
+        background: linear-gradient(to right bottom, white 50%, #d5e0f6 50%);
+        height: 100vh;
+    }
     .info {
         text-align: center;
         margin-top: 30px;
     }
-
+    img:hover {
+       -webkit-transform: rotateZ(15deg); /* Safari */
+        transform: rotateZ(15deg);
+    }
 
     img {
         height: 2.5em;
         width: 2.5em;
+        transition: .3s;
     }
 </style>
