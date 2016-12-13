@@ -4,7 +4,7 @@
 
         <div class="info">
             <h1>Brandon Gladen</h1>
-            <h3><em>Full Stack Web Developer</em></h3>
+            <h3><em>Web Developer</em></h3>
             <p>(218) 556-4588</p>
             <p>me@brandongladen.com</p>
             <div>
@@ -39,5 +39,6 @@
         height: 2.5em;
         width: 2.5em;
         transition: .3s;
+        opacity: 0.85;
     }
 </style>
