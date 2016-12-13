@@ -19,7 +19,7 @@
         </div>
         <div class="wireframe">
             <div class="about">
-                <h1>I make websites and applications using a variety of languages and frameworks.</h1>
+            <h1>I make websites and applications using a variety of languages and frameworks.</h1>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
         width:12em;
         float: right;
         margin-right: 2em;
-        margin-top: 8em;
+        margin-top: 10em;
     }
     .wireframe {
         width: 100%;
@@ -90,6 +90,13 @@
             text-align: center;
             color: white;
             font-size: .7em;
+        }
+        .icarus {
+            height: 8em;
+            width:9em;
+            float: right;
+            margin-right: 2em;
+            margin-top: 10em;
         }
     }
 </style>
