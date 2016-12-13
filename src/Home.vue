@@ -12,12 +12,12 @@
                     <a href="http://github.com/bg87"><img src="./assets/github.png" alt="github" class="social" /></a>
                     <a href="https://www.linkedin.com/in/brandon-gladen-19a452109"><img src="./assets/linkedin.png" alt="linkdedin" class="social" /></a>
                 </div>
+                <!--<img  src="./assets/icarus.png" alt="icarus" class="icarus"/>-->
             </div>
-
-            <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
 
         </div>
         <div class="wireframe">
+            <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
             <div class="about">
             <h1>I make websites and applications using a variety of languages and frameworks.</h1>
             </div>
@@ -33,7 +33,6 @@
     .main {
         background: linear-gradient(to right bottom, white 50%, #d5e0f6 50%);
         height: 100vh;
-        position: relative;
     }
     .info {
         text-align: center;
@@ -47,16 +46,15 @@
     .social {
         height: 2.5em;
         width: 2.5em;
+        margin: 1em;
         transition: .3s;
         opacity: 0.85;
     }
     .icarus {
-        opacity: 0.04;
+        opacity: 0.03;
         height: 11em;
         width:12em;
         float: right;
-        margin-right: 2em;
-        margin-top: 10em;
     }
     .wireframe {
         width: 100%;
@@ -91,12 +89,13 @@
             color: white;
             font-size: .7em;
         }
-        .icarus {
+    }
+
+     @media (max-width: 600px) {
+         .icarus {
             height: 8em;
             width:9em;
             float: right;
-            margin-right: 2em;
-            margin-top: 10em;
         }
-    }
+     }
 </style>
