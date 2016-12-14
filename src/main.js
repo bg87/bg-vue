@@ -7,7 +7,6 @@ import Nav from './Nav.vue';
 import Boxes from './boxes/BoxesIndex.vue';
 import Notebook from './notebook/NotebookIndex.vue';
 
-
 Vue.component('app-nav', Nav);
 Vue.component('app-home', Home);
 Vue.component('app-boxes', Boxes);

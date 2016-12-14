@@ -1,5 +1,5 @@
 <template>
-    <div @scroll="handleScroll">
+    <div>
         <div class="main">
             <app-nav></app-nav>
 
@@ -39,9 +39,38 @@ export default {
         }
     },
     methods: {
-          handleScroll() {
-            console.log('scroll');
+        handleScroll() {
+           // let windowHeight = window.innerHeight();
+           // console.log(windowHeight);
+           // var window_top_position = $window.scrollTop();
+           // var window_bottom_position = (window_top_position + window_height);
+
+           // $.each($animation_elements, function() {
+               // var $element = $(this);
+               // var element_height = $element.outerHeight();
+               // var element_top_position = $element.offset().top;
+               // var element_bottom_position = (element_top_position + element_height);
+
+                //check to see if this current container is within viewport
+               // if ((element_bottom_position >= window_top_position) &&
+                //    (element_top_position <= window_bottom_position)) {
+              //  $element.addClass('in-view');
+              //  } else {
+               // $element.removeClass('in-view');
+              //  }
+           // });
+        },
+        inView() {
+            //console.log('hello');
         }
+    },
+    // Creat event listener on window object
+    // Since we want to listen to the event on the window object we have to handle the event this way
+    created() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.handleScroll);
     }
 }
 </script>
@@ -136,6 +165,16 @@ export default {
             margin:1em;
             filter: grayscale(80%); 
             transition: .5s;     
+        }
+        .wireframe {
+            width: 100%;
+            height: 100%;
+        
+            background: url('assets/wireframe.png') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
      }
 </style>
