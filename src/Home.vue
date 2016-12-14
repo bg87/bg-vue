@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @scroll="handleScroll">
         <div class="main">
             <app-nav></app-nav>
 
@@ -12,7 +12,6 @@
                     <a href="http://github.com/bg87"><img src="./assets/github.png" alt="github" class="social" /></a>
                     <a href="https://www.linkedin.com/in/brandon-gladen-19a452109"><img src="./assets/linkedin.png" alt="linkdedin" class="social" /></a>
                 </div>
-                <!--<img  src="./assets/icarus.png" alt="icarus" class="icarus"/>-->
             </div>
 
         </div>
@@ -20,6 +19,12 @@
             <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
             <div class="about">
             <h1>I make websites and applications using a variety of languages and frameworks.</h1>
+            <div class="projects">
+                <img class="project-img"src="./assets/node.png" alt="node" />
+                <img class="project-img"src="./assets/angular.png" alt="angular" />
+                <img class="project-img"src="./assets/rails.png" alt="rails" />
+                <img class="project-img"src="./assets/vue.png" alt="vue" />
+            </div>
             </div>
         </div>
     </div>
@@ -27,6 +32,18 @@
 
 <script>
 
+export default {
+    data: () => {
+        return {
+            scrollPosition: 0
+        }
+    },
+    methods: {
+          handleScroll() {
+            console.log('scroll');
+        }
+    }
+}
 </script>
 
 <style scoped> 
@@ -58,7 +75,7 @@
     }
     .wireframe {
         width: 100%;
-        height:42em;
+        /*height:42em;*/
     
         background: url('assets/wireframe.png') no-repeat center center fixed; 
         -webkit-background-size: cover;
@@ -70,6 +87,19 @@
         padding: 8em;
         text-align: center;
         color: white;
+    }
+    .projects {
+        margin-top: 7em;
+    }
+    .project-img {
+        height: 5em;
+        width: 5em;
+        margin:3em 3em 3em 3em;
+        filter: grayscale(80%); 
+        transition: .5s;     
+    }
+    .project-img:hover {
+        filter: grayscale(0%);        
     }
 
     @media (max-width: 400px) {
@@ -93,9 +123,19 @@
 
      @media (max-width: 600px) {
          .icarus {
-            height: 8em;
-            width:9em;
+            height: 4em;
+            width:5em;
             float: right;
+        }
+        .projects {
+            margin-top:1em
+        }
+        .project-img {
+            height: 3em;
+            width: 3em;
+            margin:1em;
+            filter: grayscale(80%); 
+            transition: .5s;     
         }
      }
 </style>

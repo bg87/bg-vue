@@ -9,8 +9,10 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "scrollreveal": "^3.3.2",
     "vue": "^2.1.0",
-    "vue-router": "^2.1.1"
+    "vue-router": "^2.1.1",
+    "vue-scroll": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
