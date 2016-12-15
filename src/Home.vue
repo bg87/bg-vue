@@ -19,11 +19,11 @@
             <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
             <div class="about">
             <h1>I make websites and applications using a variety of languages and frameworks.</h1>
-            <div class="projects">
-                <img class="project-img"src="./assets/node.png" alt="node" />
-                <img class="project-img"src="./assets/angular.png" alt="angular" />
-                <img class="project-img"src="./assets/rails.png" alt="rails" />
-                <img class="project-img"src="./assets/vue.png" alt="vue" />
+            <div class="logos">
+                <img class="logo" src="./assets/node.png" alt="node" />
+                <img class="logo" src="./assets/angular.png" alt="angular" />
+                <img class="logo" src="./assets/rails.png" alt="rails" />
+                <img class="logo" src="./assets/vue.png" alt="vue" />
             </div>
             </div>
         </div>
@@ -31,48 +31,17 @@
 </template>
 
 <script>
-
-export default {
-    data: () => {
-        return {
-            scrollPosition: 0
-        }
-    },
-    methods: {
-        handleScroll() {
-           // let windowHeight = window.innerHeight();
-           // console.log(windowHeight);
-           // var window_top_position = $window.scrollTop();
-           // var window_bottom_position = (window_top_position + window_height);
-
-           // $.each($animation_elements, function() {
-               // var $element = $(this);
-               // var element_height = $element.outerHeight();
-               // var element_top_position = $element.offset().top;
-               // var element_bottom_position = (element_top_position + element_height);
-
-                //check to see if this current container is within viewport
-               // if ((element_bottom_position >= window_top_position) &&
-                //    (element_top_position <= window_bottom_position)) {
-              //  $element.addClass('in-view');
-              //  } else {
-               // $element.removeClass('in-view');
-              //  }
-           // });
+    export default {
+        data: () => {
+            return {
+                scrollPosition: 0,
+                height: screen.height
+            }
         },
-        inView() {
-            //console.log('hello');
+        methods: {
+            
         }
-    },
-    // Creat event listener on window object
-    // Since we want to listen to the event on the window object we have to handle the event this way
-    created() {
-        window.addEventListener('scroll', this.handleScroll);
-    },
-    destroyed() {
-        window.removeEventListener('scroll', this.handleScroll);
     }
-}
 </script>
 
 <style scoped> 
@@ -104,8 +73,7 @@ export default {
     }
     .wireframe {
         width: 100%;
-        /*height:42em;*/
-    
+        height: 100vh;
         background: url('assets/wireframe.png') no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -117,17 +85,17 @@ export default {
         text-align: center;
         color: white;
     }
-    .projects {
+    .logos {
         margin-top: 7em;
     }
-    .project-img {
-        height: 5em;
-        width: 5em;
-        margin:3em 3em 3em 3em;
+    .logo {
+        height: 1em;
+        width: 1em;
+        margin: 3em;
         filter: grayscale(80%); 
         transition: .5s;     
-    }
-    .project-img:hover {
+    }  
+    .logo:hover {
         filter: grayscale(0%);        
     }
 
