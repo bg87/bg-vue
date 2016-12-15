@@ -2,7 +2,6 @@
     <div>
         <div class="main">
             <app-nav></app-nav>
-
             <div class="info">
                 <h1>Brandon Gladen</h1>
                 <h3><em>Web Developer</em></h3>
@@ -32,10 +31,9 @@
 
 <script>
     export default {
-        data: () => {
+        data() {
             return {
-                scrollPosition: 0,
-                height: screen.height
+
             }
         },
         methods: {
@@ -89,9 +87,9 @@
         margin-top: 7em;
     }
     .logo {
-        height: 1em;
-        width: 1em;
-        margin: 3em;
+        height: 4em;
+        width: 4em;
+        margin: 1em;
         filter: grayscale(80%); 
         transition: .5s;     
     }  

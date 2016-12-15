@@ -16,16 +16,11 @@
 
 <script>
   export default {
-  data () {
-    return {
-
-    }
-  },
   methods: {
-    openNav: () => {
+    openNav() {
         document.getElementById("mySidenav").style.width = "100%";
     },
-    closeNav: () => {
+    closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
   }
