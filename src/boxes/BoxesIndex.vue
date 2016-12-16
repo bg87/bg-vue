@@ -4,11 +4,13 @@
         
         <div class="panel1">
             <h1>This app is under construction.</h1>
-            <button @click="show = true">Push me</button>
             <transition name="fade">
-                <div v-if="show">
+                <button @click="show = true" v-if="!show">Push me</button>
+            </transition>
+            <transition name="fade">
+                <div v-if="show" class="message">
                     <h1>It's still under construction</h1>
-                    <p>But you can scroll down for a suprise</p>
+                    <p>But you can scroll down to see what it may look like when it's done</p>
                 </div>
             </transition>
             <transition name="slide">
@@ -16,27 +18,33 @@
             </transition>
         </div>
         <div class="panel2">
-            <div class="panel2Content"></div>
-        </div>
-        <div class="panel3">
+            <transition name="fade">
+                <div class="panel2Content" v-if="trigger">
+                    <boxes-nav></boxes-nav>
 
-        </div>
-        <div class="panel4">
-            
+                    <boxes-notes></boxes-notes>
+                </div>
+            </transition>
         </div>
     </div>
 </template>
 
 <script>
+    import BoxesNav from './BoxesNav.vue';
+    import BoxesNotes from './BoxesNotes.vue';
+
     export default {
         data() {
             return {
-                show: false
+                show: false,
+                trigger: false
             }
         },
         methods: {
-            handleScroll(event) {
-                console.log('scroll');
+            handleScroll() {
+                if(pageYOffset > 400) {
+                    this.trigger = true;
+                }
             }
         },
         created() {
@@ -44,6 +52,10 @@
         },
         destroyed() {
             window.removeEventListener('scroll', this.handleScroll);
+        },
+        components: {
+            'boxes-nav': BoxesNav,
+            'boxes-notes': BoxesNotes
         }
     }
 </script>
@@ -74,6 +86,12 @@
     .fade-enter-active {
         transition: opacity 1s;
     }
+    .fade-leave {
+        opacity: 0;
+    }
+    .fade-leave-active {
+        transition: opacity 1s;
+    }
     .slide-enter{
         opacity: 0;
     }
@@ -89,7 +107,9 @@
             transform: translateX(0);
         }
     }
-
+    .message {
+        margin-top:4em;
+    }
     button {
         padding: 1em 2em;
         margin: 2em;
@@ -104,30 +124,11 @@
         background-color: rgba(97, 132, 250, 1);
     }
     .fa-arrow-circle-down {
-        margin-top: 3em;
+        margin-top: 2em;
         font-size:3em;
     }
     .panel2 {
-        background-color: #e0e0e0;
-        height: 75vh;
-        padding: 5em;
-    }
-    .panel2Content {
-        height: 60vh;
-        width: 60vh;
-        margin: auto;
-        background: url('../assets/violin.jpg') no-repeat center center; 
-         -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover; 
-        opacity: 1;
-        border-radius: 50%;
-    }
-    .panel3 {
-        height: 100vh;
-    }
-    .panel4 {
+        background-color: ;
         height: 100vh;
     }
 </style>
