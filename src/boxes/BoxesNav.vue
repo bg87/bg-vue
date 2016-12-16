@@ -1,26 +1,22 @@
 <template>
     <div>
-        <nav>
-            <div class="dropdown" @click="active1">My Account <span class="fa fa-angle-down"></span>
-                <div class="drop1Content" v-if="drop1">
-                    <ul class="dropdownLinks">
-                      <li>link</li>  
-                      <li>link</li>  
-                      <li>logout</li>  
-                    </ul>
-                </div>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#">My Account</a>
+                <ul class="navbar-nav navbar-right">
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Note Order <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                </ul>
+                <input type="text" placeholder="search"/>
             </div>
-            <div class="dropdown" @click="active2">Order <span class="fa fa-angle-down"></span>
-                <div class="drop2Content" v-if="drop2">
-                    <ul class="dropdownLinks">
-                      <li>Shuffle</li>  
-                      <li>Newest First</li>  
-                      <li>Oldest First</li>  
-                    </ul>
-                </div>
-            </div>
-
-            <input type="text" placeholder="search"/>
         </nav>
     </div>
 </template>
@@ -29,23 +25,11 @@
     export default {
         data() {
             return {
-                drop1: false,
-                drop2: false
+           
             }
         },
         methods: {
-            closeDropdowns() {
-                this.drop1 = false;
-                this.drop2 = false;
-            },
-            active1() {
-                this.closeDropdowns();
-                this.drop1 = true;
-            },
-            active2() {
-                this.closeDropdowns();
-                this.drop2 = true;
-            }
+           
         }
     }
 </script>
@@ -55,36 +39,13 @@
         height: 2em;
         background-color: #e8e8e8;
         padding-top: 1em;
-    }
-    .dropdown {
-        position: relative;
-        cursor: pointer;
-        margin: 1em;
-        display: inline;
         font-weight: bold;
     }
-    .drop1Content {
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
+    .nav-container {
+        width:90%;
+        margin: auto;
     }
-    .drop2Content {
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-    }
-    .dropdownLinks {
-        margin: 0;
-    }
-    .dropdownLinks, li {
-        margin: 5px 0px;
-        transition: .3s;
-    }
-    .dropdonwLinks, li:hover {
-        color: #a3a3a3;
+    a {
+        text-decoration: none !important;
     }
 </style>
