@@ -32,9 +32,15 @@
 </script>
 
 <style>
+    .notes {
+        margin-top: 3em;
+    }
+    ul {
+        list-style: none;
+    }
     .card {
         border-radius: 3px;
-        border: 2px solid gray;
+        background-color: #a5cbe4;
         width: 12em;
         height: 15em; 
     }
