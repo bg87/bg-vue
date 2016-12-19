@@ -2,9 +2,9 @@
     <div>
         <nav class="navbar">
             <div class="nav-container">
-                <a href="#">My Account</a>
+                <a href="#" class="nav-content">My Account</a>
                 <ul class="navbar-nav navbar-right">
-                        <li class="dropdown">
+                        <li class="dropdown nav-content">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Note Order <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
@@ -14,8 +14,8 @@
                                 <li><a href="#">Separated link</a></li>
                             </ul>
                         </li>
+                        <li><input type="text" placeholder="search"/></li>
                 </ul>
-                <input type="text" placeholder="search"/>
             </div>
         </nav>
     </div>
@@ -47,5 +47,11 @@
     }
     a {
         text-decoration: none !important;
+    }
+    input {
+        margin-left: 2em;
+    }
+    .nav-content {
+        margin-top: 3px;
     }
 </style>
