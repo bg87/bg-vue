@@ -4,13 +4,66 @@
             <ul class="grid">
                 <li>
                     <div class="card">
-                        <a href="http://cargocollective.com/jaimemartinez/" 
-                           data-largesrc="images/1.jpg" 
-                           data-title="Azuki bean" 
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa 
-                                             cabbage soko coriander sweet pepper water spinach winter purslane 
-                                             shallot tigernut lentil beetroot.">
-                        </a>
+                        <div class="og-expander">
+                            <div class="og-expander-inner">
+                                <span class="og-close"></span>
+                                <div class="og-fullimg">
+                                    <div class="og-loading"></div>
+                                </div>
+                                <div class="og-details">
+                                    <p>Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.</p>
+                                    <a href="#">Tech</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="og-expander">
+                            <div class="og-expander-inner">
+                                <span class="og-close"></span>
+                                <div class="og-fullimg">
+                                    <div class="og-loading"></div>
+                                </div>
+                                <div class="og-details">
+                                    <p>Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.</p>
+                                    <a href="#">Writing</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="og-expander">
+                            <div class="og-expander-inner">
+                                <span class="og-close"></span>
+                                <div class="og-fullimg">
+                                    <div class="og-loading"></div>
+                                </div>
+                                <div class="og-details">
+                                    <p>"Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen"</p>
+                                    <a href="#">Quotes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="og-expander">
+                            <div class="og-expander-inner">
+                                <span class="og-close"></span>
+                                <div class="og-fullimg">
+                                    <div class="og-loading"></div>
+                                </div>
+                                <div class="og-details">
+                                    <p>Try-hard brooklyn blue bottle, stumptown tilde coloring book direct trade biodiesel cronut bushwick.</p>
+                                    <a href="#">Tech</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -40,10 +93,25 @@
     ul {
         list-style: none;
     }
+    .grid {
+        list-style: none;
+        padding: 20px 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+    }
+    .grid li {
+        display: inline-block;
+        margin: 10px 5px 0 5px;
+        vertical-align: top;
+        height: 250px;
+    }
     .card {
         border-radius: 3px;
         width: 12em;
         height: 15em; 
+        padding: 5px;
+        font-weight: bold;
         -webkit-box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
         -moz-box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
         box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
