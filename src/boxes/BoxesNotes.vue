@@ -10,8 +10,9 @@
                                 <div class="og-fullimg">
                                     <div class="og-loading"></div>
                                 </div>
-                                <div class="og-details">    
-                                    <p>{{ note.content }}</p>
+                                <div class="content">    
+                                    <p @click="openNoteView">{{ note.content }}</p>
+                                    {{ $store.state.viewNote }}
                                     <a href="#">{{ note.tag }}</a>
                                 </div>
                             </div>
@@ -67,7 +68,9 @@
             }
         },
         methods: {
-           
+            openNoteView() {
+                this.$store.state.viewNote = true;
+            }
         }
     }
 </script>
@@ -101,5 +104,8 @@
         -webkit-box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
         -moz-box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
         box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
+    }
+    .content:hover {
+        cursor: pointer;
     }
 </style>

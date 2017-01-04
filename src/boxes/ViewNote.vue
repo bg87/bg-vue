@@ -8,15 +8,22 @@
     export default {
         data() {
             return{
-                height: 0
+
             }
         },
         methods: {
+            // Change height when note is clicked
+            expandNoteView() {
 
+            }
         }
     }
 </script>
 
 <style scoped>
-
+    div {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 </style>
