@@ -1,8 +1,10 @@
 <template>
-    <div :class="{expand: $store.state.viewNote}">
+    <div class="viewNote" :class="{expand: $store.state.viewNote}">
         <a class="closebtn" @click="closeNoteView()">&times;</a>
-        <p>{{ $store.state.selectedNote.content }}</p>
-        {{ $store.state.selectedNote.tag }}
+        <div class="note">
+            <p class="content">{{ $store.state.selectedNote.content }}</p>
+            <p class="tag">{{ $store.state.selectedNote.tag }}</p>
+        </div>
     </div>
 </template>
 
@@ -23,7 +25,7 @@
 </script>
 
 <style scoped>
-    div {
+    .viewNote {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -33,13 +35,21 @@
         background-color: #9fc1f4;
     }
     .closebtn {
-    color: white;
-    text-decoration: none;
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    cursor: pointer;
-}
+        color: white;
+        text-decoration: none;
+        font-size: 36px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .note {
+        color: white;
+        width: 85%;
+        margin: auto;
+    }
+    .note .content {
+        font-size: 2em;
+    }
+    .note .tag {
+        font-weight: bold;
+    }
 </style>
