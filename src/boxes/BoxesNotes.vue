@@ -2,69 +2,21 @@
     <div class="notes">
         <div class="layout">
             <ul class="grid">
-                <li>
-                    <div class="card">
+                <li v-for="note in notes">
+                   <div class="card">
                         <div class="og-expander">
                             <div class="og-expander-inner">
                                 <span class="og-close"></span>
                                 <div class="og-fullimg">
                                     <div class="og-loading"></div>
                                 </div>
-                                <div class="og-details">
-                                    <p>Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.</p>
-                                    <a href="#">Tech</a>
+                                <div class="og-details">    
+                                    <p>{{ note.content }}</p>
+                                    <a href="#">{{ note.tag }}</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card">
-                        <div class="og-expander">
-                            <div class="og-expander-inner">
-                                <span class="og-close"></span>
-                                <div class="og-fullimg">
-                                    <div class="og-loading"></div>
-                                </div>
-                                <div class="og-details">
-                                    <p>Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.</p>
-                                    <a href="#">Writing</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card">
-                        <div class="og-expander">
-                            <div class="og-expander-inner">
-                                <span class="og-close"></span>
-                                <div class="og-fullimg">
-                                    <div class="og-loading"></div>
-                                </div>
-                                <div class="og-details">
-                                    <p>"Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen"</p>
-                                    <a href="#">Quotes</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card">
-                        <div class="og-expander">
-                            <div class="og-expander-inner">
-                                <span class="og-close"></span>
-                                <div class="og-fullimg">
-                                    <div class="og-loading"></div>
-                                </div>
-                                <div class="og-details">
-                                    <p>Try-hard brooklyn blue bottle, stumptown tilde coloring book direct trade biodiesel cronut bushwick.</p>
-                                    <a href="#">Tech</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
                 </li>
             </ul>
         </div>
@@ -77,11 +29,45 @@
             return{
                 notes: [
                     {
-                        //content:,
-                       // tag:
+                        id: 1,
+                        content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
+                        tag: "Tech"
+                    },
+                    {
+                        id: 2,
+                        content: "Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.",
+                        tag: "Writing"
+                    },
+                    {
+                        id: 3,
+                        content: "Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen",
+                        tag: "Quotes"
+                    },
+                    {
+                        id: 4,
+                        content: "Try-hard brooklyn blue bottle, stumptown tilde coloring book direct trade biodiesel cronut bushwick.",
+                        tag: "Tech"
+                    },
+                    {
+                        id: 5,
+                        content: "Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.",
+                        tag: "Writing"
+                    },
+                    {
+                        id: 6,
+                        content: "Try-hard brooklyn blue bottle, stumptown tilde coloring book direct trade biodiesel cronut bushwick.",
+                        tag: "Tech"
+                    },
+                    {
+                        id: 7,
+                        content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
+                        tag: "Tech"
                     }
                 ]
             }
+        },
+        methods: {
+           
         }
     }
 </script>

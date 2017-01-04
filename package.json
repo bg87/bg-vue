@@ -5,14 +5,20 @@
   "author": "brandon <mn.cres@gmail.com>",
   "private": true,
   "scripts": {
+    "start": "node app.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "jquery": "^3.1.1",
+    "mongoose": "^4.7.5",
+    "path": "^0.12.7",
     "scrollmagic": "^2.0.5",
     "scrollreveal": "^3.3.2",
     "vue": "^2.1.0",
+    "vue-resource": "^1.0.3",
     "vue-router": "^2.1.1",
     "vue-scroll": "^2.0.1"
   },

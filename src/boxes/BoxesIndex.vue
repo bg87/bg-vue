@@ -23,6 +23,8 @@
                     <boxes-nav></boxes-nav>
 
                     <boxes-notes></boxes-notes>
+
+                    <view-note></view-note>
                 </div>
             </transition>
         </div>
@@ -32,6 +34,7 @@
 <script>
     import BoxesNav from './BoxesNav.vue';
     import BoxesNotes from './BoxesNotes.vue';
+    import ViewNote from './ViewNote.vue';
 
     export default {
         data() {
@@ -55,7 +58,8 @@
         },
         components: {
             'boxes-nav': BoxesNav,
-            'boxes-notes': BoxesNotes
+            'boxes-notes': BoxesNotes,
+            'view-note': ViewNote
         }
     }
 </script>
