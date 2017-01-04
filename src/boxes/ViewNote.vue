@@ -1,11 +1,13 @@
 <template>
     <div class="viewNote" :class="{expand: $store.state.viewNote}">
-        <div class="nav">
+        <div class="navContainer" v-if="$store.state.viewNote">
+            <div class="nav">
             <a class="closebtn" @click="closeNoteView()">&times;</a>
             <div class="navRight">
                 <a>EDIT</a>
                 <a>DELETE</a>
             </div>
+        </div>
         </div>
         <div class="note">
             <p class="content">{{ $store.state.selectedNote.content }}</p>
@@ -41,6 +43,9 @@
         background-color: #9fc1f4;
         transition: .3s;
     }
+    .navContainer {
+        background-color: #84aff1;
+    }
     .nav {
         width: 95%;
         margin: auto;
@@ -68,6 +73,7 @@
         margin: auto;
     }
     .note .content {
+        margin-top:1em;
         font-size: 2em;
     }
     .note .tag {
