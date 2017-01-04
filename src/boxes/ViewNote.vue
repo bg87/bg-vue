@@ -16,6 +16,7 @@
         methods: {
             closeNoteView() {
                 this.$store.state.viewNote = false;
+                this.$store.state.selectedNote = '';
             }
         }
     }
