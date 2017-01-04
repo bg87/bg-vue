@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{expand: $store.state.viewNote}">
 
     </div>
 </template>
@@ -12,10 +12,7 @@
             }
         },
         methods: {
-            // Change height when note is clicked
-            expandNoteView() {
 
-            }
         }
     }
 </script>
@@ -25,5 +22,9 @@
         position: fixed;
         bottom: 0;
         width: 100%;
+    }
+    .expand {
+        height: 45%;
+        background-color: #9fc1f4;
     }
 </style>
