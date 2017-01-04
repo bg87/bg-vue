@@ -2,7 +2,7 @@
     <div class="notes">
         <div class="layout">
             <ul class="grid">
-                <li v-for="note in notes">
+                <li v-for="note in $store.state.notes">
                    <div class="card">
                         <div class="og-expander">
                             <div class="og-expander-inner">
@@ -11,8 +11,7 @@
                                     <div class="og-loading"></div>
                                 </div>
                                 <div class="content">    
-                                    <p @click="openNoteView">{{ note.content }}</p>
-                                    {{ $store.state.viewNote }}
+                                    <p @click="openNoteView(note)">{{ note.content }}</p>
                                     <a href="#">{{ note.tag }}</a>
                                 </div>
                             </div>
@@ -28,48 +27,13 @@
     export default {
         data() {
             return{
-                notes: [
-                    {
-                        id: 1,
-                        content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
-                        tag: "Tech"
-                    },
-                    {
-                        id: 2,
-                        content: "Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.",
-                        tag: "Writing"
-                    },
-                    {
-                        id: 3,
-                        content: "Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen",
-                        tag: "Quotes"
-                    },
-                    {
-                        id: 4,
-                        content: "Try-hard brooklyn blue bottle, stumptown tilde coloring book direct trade biodiesel cronut bushwick.",
-                        tag: "Tech"
-                    },
-                    {
-                        id: 5,
-                        content: "Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.",
-                        tag: "Writing"
-                    },
-                    {
-                        id: 6,
-                        content: "Try-hard brooklyn blue bottle, stumptown tilde coloring book direct trade biodiesel cronut bushwick.",
-                        tag: "Tech"
-                    },
-                    {
-                        id: 7,
-                        content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
-                        tag: "Tech"
-                    }
-                ]
+                
             }
         },
         methods: {
-            openNoteView() {
+            openNoteView(note) {
                 this.$store.state.viewNote = true;
+                this.$store.state.selectedNote = note;
             }
         }
     }
