@@ -1,6 +1,12 @@
 <template>
     <div class="viewNote" :class="{expand: $store.state.viewNote}">
-        <a class="closebtn" @click="closeNoteView()">&times;</a>
+        <div class="nav">
+            <a class="closebtn" @click="closeNoteView()">&times;</a>
+            <div class="navRight">
+                <a>EDIT</a>
+                <a>DELETE</a>
+            </div>
+        </div>
         <div class="note">
             <p class="content">{{ $store.state.selectedNote.content }}</p>
             <p class="tag">{{ $store.state.selectedNote.tag }}</p>
@@ -33,12 +39,27 @@
     .expand {
         height: 45%;
         background-color: #9fc1f4;
+        transition: .3s;
+    }
+    .nav {
+        width: 95%;
+        margin: auto;
+    }
+    .navRight {
+        float: right;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    .navRight a {
+        text-decoration: none;
+        cursor: pointer;
+        margin-right: 1em;
+        color: white;
     }
     .closebtn {
         color: white;
         text-decoration: none;
         font-size: 36px;
-        margin-left: 10px;
         cursor: pointer;
     }
     .note {
