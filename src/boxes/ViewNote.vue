@@ -2,12 +2,12 @@
     <div class="viewNote" :class="{expand: $store.state.viewNote}">
         <div class="navContainer" v-if="$store.state.viewNote">
             <div class="nav">
-            <a class="closebtn" @click="closeNoteView()">&times;</a>
-            <div class="navRight">
-                <a>EDIT</a>
-                <a>DELETE</a>
+                <a class="closebtn" @click="closeNoteView()">&times;</a>
+                <div class="navRight">
+                    <a>EDIT</a>
+                    <a>DELETE</a>
+                </div>
             </div>
-        </div>
         </div>
         <div class="note">
             <p class="content">{{ $store.state.selectedNote.content }}</p>
@@ -18,11 +18,6 @@
 
 <script>
     export default {
-        data() {
-            return{
-
-            }
-        },
         methods: {
             closeNoteView() {
                 this.$store.state.viewNote = false;
@@ -40,11 +35,11 @@
     }
     .expand {
         height: 45%;
-        background-color: #9fc1f4;
+        background-color: #7EB0FC;
         transition: .3s;
     }
     .navContainer {
-        background-color: #84aff1;
+        background-color: #71a3ef;
     }
     .nav {
         width: 95%;
@@ -78,5 +73,6 @@
     }
     .note .tag {
         font-weight: bold;
+        vertical-align: bottom;
     }
 </style>

@@ -1,5 +1,8 @@
 <template>
     <div class="notes">
+
+            <h3>Random note on page load.</h3>
+
         <div class="layout">
             <ul class="grid">
                 <li v-for="note in $store.state.notes">
@@ -11,7 +14,7 @@
                                     <div class="og-loading"></div>
                                 </div>
                                 <div class="content">    
-                                    <p @click="openNoteView(note)">{{ note.content }}</p>
+                                    <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
                                     <a href="#">{{ note.tag }}</a>
                                 </div>
                             </div>
@@ -25,11 +28,6 @@
 
 <script>
     export default {
-        data() {
-            return{
-                
-            }
-        },
         methods: {
             openNoteView(note) {
                 this.$store.state.viewNote = true;

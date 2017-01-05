@@ -10,17 +10,17 @@ export const store = new Vuex.Store({
         notes: [
                 {
                     id: 1,
-                    content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
+                    content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag. Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
                     tag: "Tech"
                 },
                 {
                     id: 2,
-                    content: "Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.",
+                    content: "Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole. Deep v whatever cliche, keytar 8-bit vexillologist lo-fi everyday carry cornhole.",
                     tag: "Writing"
                 },
                 {
                     id: 3,
-                    content: "Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen",
+                    content: "Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen. Air plant locavore occupy tousled. Post-ironic fashion axe leggings meggings franzen",
                     tag: "Quotes"
                 },
                 {
