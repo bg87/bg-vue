@@ -5,6 +5,11 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
+        // Auth data
+        authenticated: false,
+        authModal: false,
+
+        // Note data
         viewNote: false,
         selectedNote: '',
         notes: [

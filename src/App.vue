@@ -3,22 +3,25 @@
     <transition name="fade" appear>
       <router-view></router-view>
     </transition>
+
+    <!-- Auth modal -->
+    <transition name="modal">
+        <div v-if="$store.state.authModal">
+            <auth></auth>
+        </div>
+    </transition>
   </div>
 </template>
 
 <script>
   import Nav from './Nav.vue';
+  import Auth from './auth/Auth.vue';
 
 export default {
   name: 'app',
-  data() {
-    return {
-
-    }
-  },
-  methods: {
-  
-  } 
+  components: {
+            'auth': Auth
+        }
 }
 </script>
 
@@ -45,4 +48,16 @@ export default {
   .fade-enter-active {
     transition: opacity 1s;
   }
+  .modal-enter {
+        opacity: 0;
+    }
+    .modal-enter-active {
+        transition: opacity 1.5s;
+    }
+    .modal-leave {
+        opacity: 0;
+    }
+    .modal-leave-active {
+        transition: opacity 1.5s;
+    }
 </style>
