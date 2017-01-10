@@ -52,12 +52,12 @@ export default {
         opacity: 0;
     }
     .modal-enter-active {
-        transition: opacity 1.5s;
+        transition: opacity 1s;
     }
     .modal-leave {
         opacity: 0;
     }
     .modal-leave-active {
-        transition: opacity 1.5s;
+        transition: opacity 1s;
     }
 </style>

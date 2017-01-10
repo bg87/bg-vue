@@ -14,6 +14,8 @@ app.use('/dist', express.static(path.join(__dirname, '/dist')));
 
 // Routes
 app.use('/user', user);
+// app.use('/notes, Note');
+// app.use('/notebooks, NoteBook');
 app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });

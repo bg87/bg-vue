@@ -6,23 +6,63 @@
                     <div class="modal-container">
 
                     <div class="modal-header">
-                        <div>
-                            <p>Sign In</p>
-                        </div>
+                        <p>Sign In</p>
                     </div>
 
                     <div class="modal-body">
-                        <div>
-                            <p>default body</p>
-                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" 
+                                       class="form-control"
+                                       v-model="user.email"
+                                       autofocus="true"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" 
+                                       class="form-control"
+                                       v-model="user.password"/>
+                            </div>
+                        </form>
+
+                        <p class="create-account">Or create an account</p>
+                        <form>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" 
+                                       class="form-control"
+                                       v-model="newUser.username"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" 
+                                       class="form-control"
+                                       v-model="newUser.email"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" 
+                                       class="form-control"
+                                       v-model="newUser.password"/>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="modal-footer">
                         <div name="footer">
-                            <button class="sign-up" @click="signUp">
+                            <button class="sign-up"
+                                    @click.prevent 
+                                    @click="signUp">
                                 Sign Up
                             </button>
-                            <button class="sign-in" @click="signIn">
+                            <button class="sign-in"
+                                    @click.prevent 
+                                    @click="signIn" 
+                                    type="submit">
                                 Sign In
                             </button>
                         </div>
@@ -33,8 +73,23 @@
     </div>
 </template>
 
-<script>
+<script>  
     export default {
+        data() {
+            return {
+                // user sign in info
+                user: {
+                    email: '',
+                    password: ''
+                },
+                // new user sign up info
+                newUser: {
+                    username: '',
+                    email: '',
+                    password: ''
+                }
+            }
+        },
         methods: {
             signUp() {
                 this.$store.state.authModal = false;
@@ -76,11 +131,17 @@
     }
 
     .modal-header {
+        padding: 0;
         text-align: center;
         font-size: 1.5em;
         color: #42b983;
     }
-
+    .create-account {
+        margin-top: 3em;
+        text-align: center;
+        font-size: 1.5em;
+        color: #42b983;
+    }
     .modal-body {
         
     }
