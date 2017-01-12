@@ -92,9 +92,13 @@
         },
         methods: {
             signUp() {
+                // close modal
                 this.$store.state.authModal = false;
+
+                
             },
             signIn() {
+                // close modal
                 this.$store.state.authModal = false;
             }
         }
