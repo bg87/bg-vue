@@ -12,16 +12,16 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" 
+                                <input type="text"
+                                       placeholder="Email" 
                                        class="form-control"
                                        v-model="user.email"
                                        autofocus="true"/>
                             </div>
                             
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" 
+                                <input type="password"
+                                       placeholder="Password" 
                                        class="form-control"
                                        v-model="user.password"/>
                             </div>
@@ -30,22 +30,15 @@
                         <p class="create-account">Or create an account</p>
                         <form>
                             <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" 
-                                       class="form-control"
-                                       v-model="newUser.username"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Email</label>
                                 <input type="email" 
+                                       placeholder="Email"
                                        class="form-control"
                                        v-model="newUser.email"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" 
+                                <input type="password"
+                                       placeholder="Password" 
                                        class="form-control"
                                        v-model="newUser.password"/>
                             </div>
@@ -84,7 +77,6 @@
                 },
                 // new user sign up info
                 newUser: {
-                    username: '',
                     email: '',
                     password: ''
                 }
@@ -92,14 +84,26 @@
         },
         methods: {
             signUp() {
-                // close modal
+                // Close modal
                 this.$store.state.authModal = false;
-
-                
+                // Sign up new user with firebase
+                firebase.auth().createUserWithEmailAndPassword(this.newUser.email, this.newUser.password)
+                    .catch(function(error) {
+                        console.log(error.code);
+                        console.log(error.message);
+                });
+                this.$store.state.user = true;
             },
             signIn() {
                 // close modal
                 this.$store.state.authModal = false;
+                // Sign in with firebase
+                firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
+                    .catch(function(error) {
+                        console.log(error.code);
+                        console.log(error.message);
+                });
+                this.$store.state.user = true;
             }
         }
     }

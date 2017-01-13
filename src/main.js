@@ -17,7 +17,6 @@ Vue.component('app-notebook', Notebook);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
-
 const router = new VueRouter({
   routes,
   mode: 'history'

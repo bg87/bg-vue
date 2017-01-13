@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        // Auth data
-        authenticated: false,
+        // Auth data.
+        user: false,
         authModal: false,
 
         // Note data

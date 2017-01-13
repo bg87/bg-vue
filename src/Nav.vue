@@ -8,8 +8,9 @@
                 <router-link to="/boxes">Boxes app</router-link>
                 <router-link to="/notebook">Notebook app</router-link>
                 <hr>
-                    <a v-if="$store.state.authenticated">Sign Out</a>
-                    <a v-if="!$store.state.authenticated" @click="openAuthModal">Sign In</a>
+                    <a v-if="$store.state.user" @click="signOut">Sign Out</a>
+                    <a v-if="!$store.state.user" @click="openAuthModal">Sign In</a>
+                    {{$store.state.user}}
             </div>
         </div>
         
@@ -28,6 +29,13 @@
             },
             openAuthModal() {
                 this.$store.state.authModal = true;
+            },
+            signOut() {
+                firebase.auth().signOut().then(function() {
+                    }, function(error) {
+                        console.log(error);
+                });
+                this.$store.state.user = false;
             }
         }
     }
