@@ -67,26 +67,23 @@
     }
     .grid {
         list-style: none;
-        padding: 20px 0;
+        padding: 5px 0;
         margin: 0 auto;
         text-align: center;
         width: 100%;
     }
     .grid li {
         display: inline-block;
-        margin: 10px 5px 0 5px;
+        margin: 5px 5px 5px 5px;
         vertical-align: top;
-        height: 250px;
+        
     }
     .card {
-        border-radius: 3px;
-        width: 12em;
+        width: 15em;
         height: 15em; 
-        padding: 5px;
+        padding: 10px;
         font-weight: bold;
-        -webkit-box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
-        -moz-box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
-        box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 0.75);
+        background-color: #ededed;
     }
     .content:hover {
         cursor: pointer;

@@ -3,7 +3,11 @@
         <header>
             <app-nav></app-nav>
 
-            <h2 class="headerNote">random note random note random note random note random note</h2>
+            <div class="headerNote">
+                <transition name="fade">
+                    <h3><em>{{ randomNote.content }}</em></h3>
+                </transition>
+            </div>
 
             <ul>
                 <li>New Note</li>
@@ -19,8 +23,7 @@
         </header>
         <div>
             <transition name="fade">
-                <div class="panel2Content">
-                    <!--<boxes-nav></boxes-nav>-->
+                <div>
 
                     <boxes-notes></boxes-notes>
 
@@ -32,21 +35,23 @@
 </template>
 
 <script>
-    import BoxesNav from './BoxesNav.vue';
     import BoxesNotes from './BoxesNotes.vue';
     import ViewNote from './ViewNote.vue';
 
     export default {
         data() {
             return {
-
+                notes: this.$store.state.dummyNotes,
+                randomNote: ''
             }
         },
-        methods: {
-            
+        created()  {
+            this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
+            window.setInterval(() => {
+                this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
+            }, 3000)
         },
         components: {
-            'boxes-nav': BoxesNav,
             'boxes-notes': BoxesNotes,
             'view-note': ViewNote
         }
@@ -61,6 +66,7 @@
         text-align: center;
         width: 60%;
         margin: auto;
+        height: 15em;
     }
     ul {
        text-align: center; 
@@ -82,13 +88,5 @@
     }
     .fade-leave-active {
         transition: opacity 1s;
-    }
-    @keyframes slide-in {
-        from {
-            transform: translateX(500px);
-        }
-        to {
-            transform: translateX(0);
-        }
     }
 </style>
