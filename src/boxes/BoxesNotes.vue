@@ -1,27 +1,48 @@
 <template>
-    <div class="notes">
+    <div>
+        <div class="notes">
 
-            <h3>Random note on page load.</h3>
-
-        <div class="layout">
-            <ul class="grid">
-                <li v-for="note in $store.state.notes">
-                   <div class="card">
-                        <div class="og-expander">
-                            <div class="og-expander-inner">
-                                <span class="og-close"></span>
-                                <div class="og-fullimg">
-                                    <div class="og-loading"></div>
-                                </div>
-                                <div class="content">    
-                                    <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                    <a href="#">{{ note.tag }}</a>
+            <div class="layout" v-if="!$store.state.user">
+                <ul class="grid">
+                    <li v-for="note in $store.state.dummyNotes">
+                    <div class="card">
+                            <div class="og-expander">
+                                <div class="og-expander-inner">
+                                    <span class="og-close"></span>
+                                    <div class="og-fullimg">
+                                        <div class="og-loading"></div>
+                                    </div>
+                                    <div class="content">    
+                                        <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
+                                        <a href="#">{{ note.tag }}</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> 
-                </li>
-            </ul>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+
+            <div class="layout" v-if="$store.state.user">
+                <ul class="grid">
+                    <li v-for="note in $store.state.dummyNotes">
+                    <div class="card">
+                            <div class="og-expander">
+                                <div class="og-expander-inner">
+                                    <span class="og-close"></span>
+                                    <div class="og-fullimg">
+                                        <div class="og-loading"></div>
+                                    </div>
+                                    <div class="content">    
+                                        <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
+                                        <a href="#">{{ note.tag }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>

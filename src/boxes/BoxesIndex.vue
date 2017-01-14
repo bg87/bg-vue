@@ -1,26 +1,26 @@
 <template>
     <div class="main">
-        <app-nav></app-nav>
-        
-        <div class="panel1">
-            <h1>This app is under construction.</h1>
+        <header>
+            <app-nav></app-nav>
+
+            <h2 class="headerNote">random note random note random note random note random note</h2>
+
+            <ul>
+                <li>New Note</li>
+                <li>
+                    <select>
+                        <option value="" disabled selected>Note Order</option>
+                        <option>Shuffle</option>
+                        <option>Newest First</i></option>
+                        <option>Oldest First</option>
+                    </select>
+                </li>
+            </ul>
+        </header>
+        <div>
             <transition name="fade">
-                <button @click="show = true" v-if="!show">Push me</button>
-            </transition>
-            <transition name="fade">
-                <div v-if="show" class="message">
-                    <h1>It's still under construction</h1>
-                    <p>But you can scroll down to see what it may look like when it's done</p>
-                </div>
-            </transition>
-            <transition name="slide">
-                <span v-if="show" class="fa fa-arrow-circle-down"></span>
-            </transition>
-        </div>
-        <div class="panel2">
-            <transition name="fade">
-                <div class="panel2Content" v-if="trigger">
-                    <boxes-nav></boxes-nav>
+                <div class="panel2Content">
+                    <!--<boxes-nav></boxes-nav>-->
 
                     <boxes-notes></boxes-notes>
 
@@ -39,22 +39,11 @@
     export default {
         data() {
             return {
-                show: false,
-                trigger: false
+
             }
         },
         methods: {
-            handleScroll() {
-                if(pageYOffset > 400) {
-                    this.trigger = true;
-                }
-            }
-        },
-        created() {
-            window.addEventListener('scroll', this.handleScroll);
-        },
-        destroyed() {
-            window.removeEventListener('scroll', this.handleScroll);
+            
         },
         components: {
             'boxes-nav': BoxesNav,
@@ -65,24 +54,22 @@
 </script>
 
 <style scoped>
-    .main {
-         background: url('../assets/fail.jpg') no-repeat center center fixed; 
-         -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        height: 100vh; 
+    header {
+        width: 100%;
     }
-    .panel1 {
+    .headerNote {
         text-align: center;
-        color: white;
-        margin-top: 4em;
-        background: url('../assets/fail.jpg') no-repeat center center fixed; 
-         -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        height: 100vh; 
+        width: 60%;
+        margin: auto;
+    }
+    ul {
+       text-align: center; 
+       margin-top: 3em;
+    }
+    ul li {
+        display: inline;
+        margin: 1em;
+        font-weight: bold;
     }
     .fade-enter {
         opacity: 0;
@@ -96,13 +83,6 @@
     .fade-leave-active {
         transition: opacity 1s;
     }
-    .slide-enter{
-        opacity: 0;
-    }
-    .slide-enter-active {
-        animation: slide-in .6s ease-out forwards;
-        transition: 1.5s;
-    }
     @keyframes slide-in {
         from {
             transform: translateX(500px);
@@ -110,29 +90,5 @@
         to {
             transform: translateX(0);
         }
-    }
-    .message {
-        margin-top:4em;
-    }
-    button {
-        padding: 1em 2em;
-        margin: 2em;
-        font-weight: bold;
-        border-radius: 5px;
-        border: none;
-        color: white;
-        background-color: rgba(97, 132, 250, 0.65);
-        transition: 0.5s;
-    }
-    button:hover {
-        background-color: rgba(97, 132, 250, 1);
-    }
-    .fa-arrow-circle-down {
-        margin-top: 2em;
-        font-size:3em;
-    }
-    .panel2 {
-        background-color: ;
-        height: 100vh;
     }
 </style>

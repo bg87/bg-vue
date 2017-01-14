@@ -10,7 +10,6 @@
                 <hr>
                     <a v-if="$store.state.user" @click="signOut">Sign Out</a>
                     <a v-if="!$store.state.user" @click="openAuthModal">Sign In</a>
-                    {{$store.state.user}}
             </div>
         </div>
         

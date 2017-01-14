@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
         // Note data
         viewNote: false,
         selectedNote: '',
-        notes: [
+        dummyNotes: [
                 {
                     id: 1,
                     content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag. Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
