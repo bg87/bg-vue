@@ -5,16 +5,29 @@
 
             <div class="headerNote">
                 <transition name="fade">
-                    <h3><em>{{ randomNote.content }}</em></h3>
+                    <h3><em>{{ randomNote.content.substring(0,200) }}</em></h3>
                 </transition>
             </div>
         </header>
 
         <ul class="sidebar">
-            <li><i class="fa fa-cog"></i></li>
-            <li><i class="fa fa-file-text-o"></i></li>
-            <li><i class="fa fa-list"></i></li>
+            <li data-toggle="tooltip" title="settings"><i class="fa fa-cog"></i></li>
+            <li data-toggle="tooltip" title="new note" @click="newNote"><i class="fa fa-file-text-o"></i></li>
+            <li>
+                <div class="dropdown" data-toggle="tooltip" title="note order">
+                    <i class="fa fa-list" type="button" data-toggle="dropdown" title="note order"></i>
+                    <ul class="dropdown-menu">
+                        <li>Shuffle</li>
+                        <li>Newest First</li>
+                        <li>Oldest First</li>
+                    </ul>
+                </div>
+            </li>
         </ul>
+
+        <transition name="fade">
+            <new-note v-if="$store.state.newNoteModal"></new-note>
+        </transition>
 
         <div>
             <transition name="fade">
@@ -31,12 +44,18 @@
 <script>
     import BoxesNotes from './BoxesNotes.vue';
     import ViewNote from './ViewNote.vue';
+    import NewNote from './NewNote.vue';
 
     export default {
         data() {
             return {
                 notes: this.$store.state.dummyNotes,
                 randomNote: ''
+            }
+        },
+        methods: {
+            newNote() {
+                this.$store.state.newNoteModal = true;
             }
         },
         created()  {
@@ -47,7 +66,8 @@
         },
         components: {
             'boxes-notes': BoxesNotes,
-            'view-note': ViewNote
+            'view-note': ViewNote,
+            'new-note': NewNote
         }
     }
 </script>
@@ -60,7 +80,7 @@
         text-align: center;
         width: 60%;
         margin: auto;
-        height: 15em;
+        height: 12em;
     }
     .sidebar {
         position: fixed;
@@ -71,6 +91,14 @@
         margin-bottom: 10px;
         font-size: 30px;
         cursor: pointer;
+    }
+    .dropdown-menu {
+        padding: 5px;
+    }
+    .dropdown-menu li {
+        margin: 0;
+        font-size: 1em;
+        font-weight: bold;
     }
     .fade-enter {
         opacity: 0;

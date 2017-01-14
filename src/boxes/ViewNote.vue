@@ -4,8 +4,8 @@
             <div class="nav">
                 <a class="closebtn" @click="closeNoteView()">&times;</a>
                 <div class="navRight">
-                    <i class="fa fa-pencil-square-o"></i>
-                    <i class="fa  fa-trash"></i>
+                    <i class="fa fa-pencil-square-o" data-toggle="tooltip" title="edit"></i>
+                    <i class="fa  fa-trash" data-toggle="tooltip" title="delete"></i>
                 </div>
             </div>
         </div>
@@ -34,7 +34,6 @@
         width: 100%;
     }
     .expand {
-        height: 45%;
         background-color: #7EB0FC;
         transition: .3s;
     }

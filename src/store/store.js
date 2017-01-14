@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
         dummyNotes: [
                 {
                     id: 1,
-                    content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag. Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
+                    content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag. Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag. Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag. Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
                     tag: "Tech"
                 },
                 {
@@ -48,6 +48,9 @@ export const store = new Vuex.Store({
                     content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
                     tag: "Tech"
                 }
-            ]
+            ],
+            
+            // new note 
+            newNoteModal: false
     }
 });
