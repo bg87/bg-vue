@@ -4,8 +4,8 @@
             <div class="nav">
                 <a class="closebtn" @click="closeNoteView()">&times;</a>
                 <div class="navRight">
-                    <a>EDIT</a>
-                    <a>DELETE</a>
+                    <i class="fa fa-pencil-square-o"></i>
+                    <i class="fa  fa-trash"></i>
                 </div>
             </div>
         </div>
@@ -48,10 +48,10 @@
     .navRight {
         float: right;
         font-weight: bold;
-        margin-top: 15px;
+        margin-top: 10px;
     }
-    .navRight a {
-        text-decoration: none;
+    .navRight i {
+        font-size: 30px;
         cursor: pointer;
         margin-right: 1em;
         color: white;

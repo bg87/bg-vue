@@ -12,7 +12,7 @@
 
         <ul class="sidebar">
             <li><i class="fa fa-cog"></i></li>
-            <li><i class="fa  fa-files-o"></i></li>
+            <li><i class="fa fa-file-text-o"></i></li>
             <li><i class="fa fa-list"></i></li>
         </ul>
 
@@ -66,11 +66,11 @@
         position: fixed;
         padding: 8px;
         margin: 0;
-        font-size: 30px;
-        cursor: pointer;
     }
     .sidebar li {
         margin-bottom: 10px;
+        font-size: 30px;
+        cursor: pointer;
     }
     .fade-enter {
         opacity: 0;
