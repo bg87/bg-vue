@@ -8,23 +8,17 @@
                     <h3><em>{{ randomNote.content }}</em></h3>
                 </transition>
             </div>
-
-            <ul>
-                <li>New Note</li>
-                <li>
-                    <select>
-                        <option value="" disabled selected>Note Order</option>
-                        <option>Shuffle</option>
-                        <option>Newest First</i></option>
-                        <option>Oldest First</option>
-                    </select>
-                </li>
-            </ul>
         </header>
+
+        <ul class="sidebar">
+            <li><i class="fa fa-cog"></i></li>
+            <li><i class="fa  fa-files-o"></i></li>
+            <li><i class="fa fa-list"></i></li>
+        </ul>
+
         <div>
             <transition name="fade">
                 <div>
-
                     <boxes-notes></boxes-notes>
 
                     <view-note></view-note>
@@ -68,14 +62,15 @@
         margin: auto;
         height: 15em;
     }
-    ul {
-       text-align: center; 
-       margin-top: 3em;
+    .sidebar {
+        position: fixed;
+        padding: 8px;
+        margin: 0;
+        font-size: 30px;
+        cursor: pointer;
     }
-    ul li {
-        display: inline;
-        margin: 1em;
-        font-weight: bold;
+    .sidebar li {
+        margin-bottom: 10px;
     }
     .fade-enter {
         opacity: 0;

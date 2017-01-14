@@ -3,6 +3,7 @@
         <div class="notes">
 
             <div class="layout" v-if="!$store.state.user">
+
                 <ul class="grid">
                     <li v-for="note in $store.state.dummyNotes">
                     <div class="card">
@@ -59,16 +60,12 @@
 </script>
 
 <style>
-    .notes {
-        margin-top: 3em;
-    }
     ul {
         list-style: none;
     }
     .grid {
         list-style: none;
-        padding: 5px 0;
-        margin: 0 auto;
+        margin: auto;
         text-align: center;
         width: 100%;
     }
