@@ -84,13 +84,11 @@
             signUp() {
                 // Close modal
                 this.$store.state.authModal = false;
+
                 // Sign up new user with firebase
-                firebase.auth().createUserWithEmailAndPassword(this.newUser.email, this.newUser.password)
-                    .catch(function(error) {
-                        console.log(error.code);
-                        console.log(error.message);
-                });
-                this.$store.state.user = true;
+                this.$http.post(this.$store.state.serverURL + '/users/signup', this.newUser);
+
+                this.$store.state.currentUser = true;
             },
             signIn() {
                 // close modal
@@ -101,7 +99,8 @@
                         console.log(error.code);
                         console.log(error.message);
                 });
-                this.$store.state.user = true;
+
+                this.$store.state.currentUser = true;
             }
         }
     }

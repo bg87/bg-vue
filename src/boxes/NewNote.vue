@@ -71,14 +71,24 @@
                 this.$store.state.newNoteModal = false;
             },
             saveNote() {
-                var tag;
+                let tag;
+                // find current user's id
+                let user = firebase.auth().currentUser.uid;
                 // Close modal
                 this.$store.state.newNoteModal = false;
                 let note = {
+                    user: user,
                     content: this.newNote.content,
                     tag: this.newNote.tag
                 }
-                console.log(note);
+
+                // Send new note to firebase DB
+                this.$http.post('https://localhost:3000/notes', note)
+                    .then((response) => {
+                        console.log(response);
+                    }, (error) => {
+                        console.log(error);
+                    });
             }
         }
     }

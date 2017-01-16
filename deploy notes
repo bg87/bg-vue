@@ -1,0 +1,3 @@
+* Change serverURL in store.js
+* Change CORS settings on server
+* Change mongoDB connection string

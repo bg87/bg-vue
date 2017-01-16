@@ -30,10 +30,7 @@
                 this.$store.state.authModal = true;
             },
             signOut() {
-                firebase.auth().signOut().then(function() {
-                    }, function(error) {
-                        console.log(error);
-                });
+                
                 this.$store.state.user = false;
             }
         }

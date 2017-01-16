@@ -5,8 +5,11 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
+        // Server URL
+        serverURL: 'http://localhost:3000',
+        
         // Auth data.
-        user: false,
+        currentUser: false,
         authModal: false,
 
         // Note data
