@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
         serverURL: 'http://localhost:3000',
         
         // Auth data.
-        currentUser: false,
+        user: false,
         authModal: false,
 
         // Note data

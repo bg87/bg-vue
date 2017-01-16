@@ -30,8 +30,10 @@
                 this.$store.state.authModal = true;
             },
             signOut() {
-                
+                // clear local storage
+                localStorage.clear();
                 this.$store.state.user = false;
+
             }
         }
     }
