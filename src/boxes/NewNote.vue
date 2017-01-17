@@ -79,8 +79,9 @@
                     tag: this.newNote.tag
                 }
                 console.log(note);
-                // Send new note to firebase DB
-                this.$http.post(this.$store.state.serverURL + '/notes/save', note)
+                // Send new note 
+                const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+                this.$http.post(this.$store.state.serverURL + '/notes/save' + token, note)
                     .then((response) => {
                         console.log(response);
                     }, (error) => {

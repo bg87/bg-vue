@@ -29,7 +29,7 @@ router.post('/signin', function(req, res) {
             });
         }
         // If user exists and has the correct credentials, create jwt
-        var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
+        var token = jwt.sign({user: user}, 'H34j58w623lK4R6vbY4', {expiresIn: 7200});
         res.status(200).json({
             message: 'User logged in',
             token: token,
