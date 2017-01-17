@@ -26,7 +26,6 @@
                             <p>Tag it</p>
 
                             <input type="text"
-                                    placeholder="Create a new tag" 
                                     class="form-control"
                                     v-model="newNote.tag"/>
                     
@@ -71,19 +70,17 @@
                 this.$store.state.newNoteModal = false;
             },
             saveNote() {
-                let tag;
-                // find current user's id
-                let user = firebase.auth().currentUser.uid;
                 // Close modal
                 this.$store.state.newNoteModal = false;
+                // New note object
                 let note = {
-                    user: user,
+                    userId: localStorage.userId,
                     content: this.newNote.content,
                     tag: this.newNote.tag
                 }
-
+                console.log(note);
                 // Send new note to firebase DB
-                this.$http.post('https://localhost:3000/notes', note)
+                this.$http.post(this.$store.state.serverURL + '/notes/save', note)
                     .then((response) => {
                         console.log(response);
                     }, (error) => {

@@ -5,7 +5,7 @@ var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 var cors       = require('cors')
 var users      = require('./routes/users');
-// var notes      = require('./routes/notes');
+var notes      = require('./routes/notes');
 
 // Enable all CORS requests
 app.use(cors())
@@ -19,7 +19,7 @@ app.use('/dist', express.static(path.join(__dirname, '/dist')));
 
 // Routes
 app.use('/users', users);
-// app.use('/notes', notes);
+app.use('/notes', notes);
 
 app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html');

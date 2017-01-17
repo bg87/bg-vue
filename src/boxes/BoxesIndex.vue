@@ -10,7 +10,7 @@
             </div>
         </header>
 
-        <ul class="sidebar">
+        <ul class="sidebar" v-if="$store.state.user">
             <li data-toggle="tooltip" title="settings"><i class="fa fa-cog"></i></li>
             <li data-toggle="tooltip" title="new note" @click="newNote"><i class="fa fa-file-text-o"></i></li>
             <li>
