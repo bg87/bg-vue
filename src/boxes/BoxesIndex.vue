@@ -62,7 +62,7 @@
             this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
             window.setInterval(() => {
                 this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
-            }, 3000)
+            }, 3000);
         },
         components: {
             'boxes-notes': BoxesNotes,

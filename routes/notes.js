@@ -20,6 +20,32 @@ router.use('/', function(req, res, next) {
 });
 
 // Get notes
+router.get('/', function(req, res) {
+    // Decode the token and find the user
+    var decoded = jwt.decode(req.query.token);
+    User.findById(decoded.user._id, function(err, user) {
+        if(err) {
+            return res.status(500).json({
+                title: 'User not found',
+                error: err
+            });
+        }
+        // Get notes with user id
+        Note.find({'user': user._id}, function(err, notes) {
+            if(err) {
+                return res.status(500).json({
+                    title: 'Note not found',
+                    error: err
+                });
+            }
+             res.status(200).json({
+                    title: 'Notes found',
+                    notes: notes
+                });
+        });
+    });
+});
+
 
 // Save new note
 router.post('/save', function(req, res) {
