@@ -83,7 +83,13 @@
                 const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
                 this.$http.post(this.$store.state.serverURL + '/notes/save' + token, note)
                     .then((response) => {
-                        console.log(response);
+                        this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                            .then((response) => {
+                                console.log('response', response.body);
+                                this.$store.state.userNotes = response.body.notes;
+                            }, (error) => {
+                                console.log(error);
+                            });
                     }, (error) => {
                         console.log(error);
                     });

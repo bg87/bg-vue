@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
         authModal: false,
 
         // Note data
+        userNotes: '',
         viewNote: false,
         selectedNote: '',
         dummyNotes: [

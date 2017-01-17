@@ -49,7 +49,7 @@
     export default {
         data() {
             return {
-                notes: this.$store.state.dummyNotes,
+                notes: this.$store.state.userNotes,
                 randomNote: ''
             }
         },
@@ -59,10 +59,20 @@
             }
         },
         created()  {
+            // Get all user notes
+            const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+            this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                .then((response) => {
+                        this.$store.state.userNotes = response.body.notes;
+                    }, (error) => {
+                        console.log(error);
+                    });
+            
+            // Reset randomNote every two minutes
             this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
             window.setInterval(() => {
                 this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
-            }, 3000);
+            }, 120000);
         },
         components: {
             'boxes-notes': BoxesNotes,

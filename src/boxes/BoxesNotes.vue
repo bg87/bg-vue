@@ -22,7 +22,7 @@
 
             <div class="layout" v-if="$store.state.user">
                 <ul class="grid">
-                    <li v-for="note in notes">
+                    <li v-for="note in $store.state.userNotes">
                         <div class="card">
                             <span class="og-close"></span>
                             <div class="og-fullimg">
@@ -42,11 +42,6 @@
 
 <script>
     export default {
-        data() {
-            return {
-                notes: []
-            }
-        },
         methods: {
             openNoteView(note) {
                 this.$store.state.viewNote = true;
@@ -58,7 +53,7 @@
             const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
             this.$http.get(this.$store.state.serverURL + '/notes' + token)
                 .then((response) => {
-                        this.notes = response.body.notes;
+                        this.$store.state.userNotes = response.body.notes;
                     }, (error) => {
                         console.log(error);
                     });
