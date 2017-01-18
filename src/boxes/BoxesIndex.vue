@@ -5,7 +5,7 @@
 
             <div class="headerNote">
                 <transition name="fade">
-                    <h3><em>{{ randomNote.content.substring(0,200) }}</em></h3>
+                    <h3 v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></h3>
                 </transition>
             </div>
         </header>
@@ -27,6 +27,7 @@
 
         <transition name="fade">
             <new-note v-if="$store.state.newNoteModal"></new-note>
+            <delete-note v-if="$store.state.deleteNoteModal"></delete-note>
         </transition>
 
         <div>
@@ -45,6 +46,7 @@
     import BoxesNotes from './BoxesNotes.vue';
     import ViewNote from './ViewNote.vue';
     import NewNote from './NewNote.vue';
+    import DeleteNote from './DeleteNote.vue';
 
     export default {
         data() {
@@ -77,7 +79,8 @@
         components: {
             'boxes-notes': BoxesNotes,
             'view-note': ViewNote,
-            'new-note': NewNote
+            'new-note': NewNote,
+            'delete-note': DeleteNote
         }
     }
 </script>

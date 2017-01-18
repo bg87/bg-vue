@@ -5,7 +5,7 @@
                 <a class="closebtn" @click="closeNoteView()">&times;</a>
                 <div class="navRight">
                     <i class="fa fa-pencil-square-o" data-toggle="tooltip" title="edit"></i>
-                    <i class="fa  fa-trash" data-toggle="tooltip" title="delete"></i>
+                    <i class="fa fa-trash" data-toggle="tooltip" title="delete" @click="openDeleteNoteModal"></i>
                 </div>
             </div>
         </div>
@@ -22,6 +22,9 @@
             closeNoteView() {
                 this.$store.state.viewNote = false;
                 this.$store.state.selectedNote = '';
+            },
+            openDeleteNoteModal() {
+                this.$store.state.deleteNoteModal = true;
             }
         }
     }
@@ -73,5 +76,6 @@
     .note .tag {
         font-weight: bold;
         vertical-align: bottom;
+        margin-bottom:3em;
     }
 </style>
