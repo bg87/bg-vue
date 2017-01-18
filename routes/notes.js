@@ -19,6 +19,7 @@ router.use('/', function(req, res, next) {
     });
 });
 
+
 // Get notes
 router.get('/', function(req, res) {
     // Decode the token and find the user
@@ -87,6 +88,50 @@ router.post('/save', function(req, res) {
 // Update note
 
 // Delete note
-// connecting users with messages  5:30
+router.post('/delete', function(req, res) {
+    // Decode the token and find the user
+    var decoded = jwt.decode(req.query.token);
+    User.findById(decoded.user._id, function(err, user) {
+        if(err) {
+                return res.status(500).json({
+                    title: 'User not found',
+                    error: err
+                });
+            }
+
+            // Delete note
+            Note.findById(req.body.id, function(err, note) {
+                if(err) {
+                    return res.status(500).json({
+                        title: 'Error saving note',
+                        error: err
+                    });
+                }
+                if(!note) {
+                    return res.status(500).json({
+                        title: 'Note not found',
+                        error: err
+                    });
+                }
+                // Delete reference to note in user.notes
+                user.notes.pull(note);
+                user.save();
+
+                note.remove(function(err, result) {
+                    if(err) {
+                        res.status(500).json({
+                            title: 'Error deleting note',
+                            error: err
+                        });
+                    }
+
+                    res.status(200).json({
+                        title: 'Note deleted',
+                        obj: result
+                    });
+                });
+            });
+    });
+});
 
 module.exports = router;

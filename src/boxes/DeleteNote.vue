@@ -14,13 +14,13 @@
                 <div class="modal-footer">
                     <div name="footer">
                         <button class="no"
-                                @click.prevent 
-                                >
+                                @click.prevent
+                                @click="closeModal">
                             I've made a huge mistake.
                         </button>
                         <button class="yes"
                                 @click.prevent 
-                                 
+                                @click="deleteNote"
                                 type="submit">
                             Go for it.
                         </button>
@@ -32,7 +32,30 @@
 </template>
 
 <script>
+    export default {
+        methods: {
+            closeModal() {
+                this.$store.state.deleteNoteModal = false;
+            },
+            deleteNote() {
+                // Close modal
+                this.$store.state.deleteNoteModal = false;
+                // Send request
+                let note = {
+                    id: this.$store.state.selectedNote._id,
+                    user: this.$store.state.selectedNote.user
+                }
 
+                const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+                this.$http.post(this.$store.state.serverURL + '/notes/delete' + token, note)
+                    .then((response) => {
+                        console.log(response);
+                    }, (response) => {
+                        console.log(response);
+                    });
+            }
+        }
+    }
 </script>
 
 <style scoped>
