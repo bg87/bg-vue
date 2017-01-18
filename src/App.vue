@@ -19,6 +19,11 @@
 
 export default {
   name: 'app',
+  created() {
+    if(localStorage.getItem('userId') !== null) {
+      this.$store.state.user = true;
+    }
+  },
   components: {
             'auth': Auth
         }

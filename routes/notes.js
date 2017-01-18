@@ -113,7 +113,7 @@ router.post('/delete', function(req, res) {
                         error: err
                     });
                 }
-                // Delete reference to note in user.notes
+                // Delete reference to note in user.notes and save
                 user.notes.pull(note);
                 user.save();
 
