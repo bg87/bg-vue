@@ -36,7 +36,7 @@
 <style scoped>
     .viewNote {
         position: fixed;
-        bottom: 0;
+        bottom: 0em;
         width: 100%;
     }
     .expand {

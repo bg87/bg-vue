@@ -49,7 +49,15 @@
                 const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
                 this.$http.post(this.$store.state.serverURL + '/notes/delete' + token, note)
                     .then((response) => {
-                        console.log(response);
+                        // Get all user notes
+                        const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+                        this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                            .then((response) => {
+                                this.$store.state.userNotes = response.body.notes;
+                                this.$store.state.viewNote = false;
+                            }, (error) => {
+                                console.log(error);
+                            });
                     }, (response) => {
                         console.log(response);
                     });

@@ -3,17 +3,12 @@
         <div class="notes">
 
             <div class="layout" v-if="!$store.state.user">
-
                 <ul class="grid">
                     <li v-for="note in $store.state.dummyNotes">
                         <div class="card">
-                            <span class="og-close"></span>
-                            <div class="og-fullimg">
-                                <div class="og-loading"></div>
-                            </div>
                             <div class="content">    
                                 <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                <a href="#">{{ note.tag }}</a>
+                                <a class="tag">{{ note.tag }}</a>
                             </div>
                         </div> 
                     </li>
@@ -24,13 +19,9 @@
                 <ul class="grid">
                     <li v-for="note in $store.state.userNotes">
                         <div class="card">
-                            <span class="og-close"></span>
-                            <div class="og-fullimg">
-                                <div class="og-loading"></div>
-                            </div>
                             <div class="content">    
                                 <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                <a href="#">{{ note.tag }}</a>
+                                <a class="tag">{{ note.tag }}</a>
                             </div>
                         </div> 
                     </li>
@@ -53,10 +44,10 @@
             const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
             this.$http.get(this.$store.state.serverURL + '/notes' + token)
                 .then((response) => {
-                        this.$store.state.userNotes = response.body.notes;
-                    }, (error) => {
-                        console.log(error);
-                    });
+                    this.$store.state.userNotes = response.body.notes;
+                }, (error) => {
+                    console.log(error);
+                });
         }
     }
 </script>
@@ -86,5 +77,9 @@
     }
     .content:hover {
         cursor: pointer;
+    }
+    .tag {
+        position: relative;
+        top: 10em;
     }
 </style>
