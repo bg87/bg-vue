@@ -34,6 +34,7 @@
         <transition name="fade">
             <new-note v-if="$store.state.newNoteModal"></new-note>
             <delete-note v-if="$store.state.deleteNoteModal"></delete-note>
+            <edit-note v-if="$store.state.editNoteModal"></edit-note>
         </transition>
 
         <div>
@@ -53,6 +54,7 @@
     import ViewNote from './ViewNote.vue';
     import NewNote from './NewNote.vue';
     import DeleteNote from './DeleteNote.vue';
+    import EditNote from './EditNote.vue';
 
     export default {
         data() {
@@ -77,7 +79,8 @@
             'boxes-notes': BoxesNotes,
             'view-note': ViewNote,
             'new-note': NewNote,
-            'delete-note': DeleteNote
+            'delete-note': DeleteNote,
+            'edit-note': EditNote
         }
     }
 </script>

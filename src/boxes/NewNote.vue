@@ -78,7 +78,7 @@
                     content: this.newNote.content,
                     tag: this.newNote.tag
                 }
-                console.log(note);
+
                 // Send new note 
                 const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
                 this.$http.post(this.$store.state.serverURL + '/notes/save' + token, note)

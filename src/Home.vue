@@ -17,13 +17,13 @@
         <div class="wireframe">
             <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
             <div class="about">
-            <h1>I make websites and applications using a variety of languages and frameworks.</h1>
-            <div class="logos">
-                <img class="logo" src="./assets/node.png" alt="node" />
-                <img class="logo" src="./assets/angular.png" alt="angular" />
-                <img class="logo" src="./assets/rails.png" alt="rails" />
-                <img class="logo" src="./assets/vue.png" alt="vue" />
-            </div>
+                <h1>I make websites and applications using a variety of languages and frameworks.</h1>
+                <div class="logos">
+                    <img class="logo" src="./assets/node.png" alt="node" />
+                    <img class="logo" src="./assets/angular.png" alt="angular" />
+                    <img class="logo" src="./assets/rails.png" alt="rails" />
+                    <img class="logo" src="./assets/vue.png" alt="vue" />
+                </div>
             </div>
         </div>
     </div>
@@ -106,6 +106,9 @@
             text-align: center;
             color: white;
             font-size: .7em;
+        }
+        .about h1 {
+            font-size: 2.3em;
         }
     }
 
