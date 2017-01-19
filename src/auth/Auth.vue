@@ -88,11 +88,11 @@
                 // Sign up new user
                 this.$http.post(this.$store.state.serverURL + '/users/signup', this.newUser)
                     .then((response) => {
-                        console.log('New user created');
                         // Store token and user id in localStorage
                         localStorage.setItem('token', response.body.token);
                         localStorage.setItem('userId', response.body.userId);
                         this.$store.state.user = true;
+                        this.signInMessage();
                     }, (response) => {
                         console.log('Error creating user', response);
                     });
@@ -104,14 +104,22 @@
                 // Sign in user
                 this.$http.post(this.$store.state.serverURL + '/users/signin', this.user)
                     .then((response) => {
-                        console.log('User signed in', response.body);
                         // Store token and user id in localStorage
                         localStorage.setItem('token', response.body.token);
                         localStorage.setItem('userId', response.body.userId);
                         this.$store.state.user = true;
+                        this.signInMessage();
                     }, (response) => {
                         console.log('Auth failed');
                     });
+            },
+            // Show flash message for 2 seconds
+            signInMessage() {
+                let that = this;
+                that.$store.state.message = true;
+                window.setTimeout(() => {
+                    that.$store.state.message = false;
+                }, 2000);
             }
         }
     }
