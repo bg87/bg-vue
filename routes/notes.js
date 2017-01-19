@@ -31,6 +31,7 @@ router.get('/', function(req, res) {
                 error: err
             });
         }
+
         // Get notes with user id
         Note.find({'user': user._id}, function(err, notes) {
             if(err) {
@@ -53,39 +54,71 @@ router.post('/save', function(req, res) {
     // Decode the token and find the user
     var decoded = jwt.decode(req.query.token);
     User.findById(decoded.user._id, function(err, user) {
+        if(err) {
+            return res.status(500).json({
+                title: 'User not found',
+                error: err
+            });
+        }
+
+        var note = new Note({
+            content: req.body.content,
+            user: user,
+            tag: req.body.tag
+        });
+
+        note.save(function(err, result) {
             if(err) {
                 return res.status(500).json({
-                    title: 'User not found',
+                    title: 'Error saving note',
                     error: err
                 });
             }
+            // Push new note onto user notes array and save
+            user.notes.push(result);
+            user.save();
 
-            var note = new Note({
-                content: req.body.content,
-                user: user,
-                tag: req.body.tag
+            res.status(201).json({
+                title: 'Note saved',
+                obj: result
             });
-
-            note.save(function(err, result) {
-                if(err) {
-                    return res.status(500).json({
-                        title: 'Error saving note',
-                        error: err
-                    });
-                }
-                // Push new note onto user notes array and save
-                user.notes.push(result);
-                user.save();
-
-                res.status(201).json({
-                    title: 'Note saved',
-                    obj: result
-                });
-            });
+        });
     });
 });
 
 // Update note
+router.post('/update', function(req, res) {
+    // Decode the token and find the user
+    var decoded = jwt.decode(req.query.token);
+    User.findById(decoded.user._id, function(err, user) {
+        if(err) {
+            return res.status(500).json({
+                title: 'User not found',
+                error: err
+            });
+        }
+        console.log(req.body);
+        // Find and update note
+        Note.findByIdAndUpdate(req.body.id, req.body, function(err, note) {
+                if(err) {
+                    return res.status(500).json({
+                        title: 'Error updating note',
+                        error: err
+                    });
+                }
+                if(!note) {
+                    return res.status(500).json({
+                        title: 'Note not found',
+                        error: err
+                    });
+                }
+                res.status(200).json({
+                    title: 'Note updated',
+                    note: note
+                });
+        });
+    });
+});
 
 // Delete note
 router.post('/delete', function(req, res) {
