@@ -40,11 +40,13 @@
         width: 100%;
     }
     .expand {
-        background-color: #7EB0FC;
+        background-color: #007EA7;
         transition: .3s;
+        height: 50%;
+        overflow: scroll;
     }
     .navContainer {
-        background-color: #71a3ef;
+        background-color: #007EA7;
     }
     .nav {
         width: 95%;

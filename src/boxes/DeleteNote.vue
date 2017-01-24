@@ -99,26 +99,26 @@
         padding: 0;
         text-align: center;
         font-size: 1.5em;
-        color: #42b983;
+        color: #007EA7;
     }
     .modal-body {
         margin: 1.2em;
         text-align: center;
         font-size: 1.2em;
-        color: #42b983;
+        color: #007EA7;
     }
     .yes {
-        border: 2px solid #42b983;
+        border: 2px solid #007EA7;
         border-radius: 3px;
         background-color: white;
-        color: #42b983; 
+        color: #007EA7; 
         font-weight: bold;
     }
     .no {
-        border: 2px solid #42b983;
+        border: 2px solid #007EA7;
         border-radius: 3px;
         background-color: white;
-        color: #42b983; 
+        color: #007EA7; 
         font-weight: bold;
         float: left;
     }

@@ -130,16 +130,16 @@
     .modal-header {
         padding: 0;
         text-align: center;
-        color: #42b983;
+        color: #007EA7;
         font-size: 1.5em;
-        color: #42b983;
+        color: #007EA7;
     }
     .form-group p {
         padding: 0;
         text-align: center;
-        color: #42b983;
+        color: #007EA7;
         font-size: 1.2em;
-        color: #42b983;
+        color: #007EA7;
 
     }
     .closebtn {

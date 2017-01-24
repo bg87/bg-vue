@@ -17,7 +17,6 @@
         </header>
 
         <ul class="sidebar" v-if="$store.state.user">
-            <li data-toggle="tooltip" title="settings"><i class="fa fa-cog"></i></li>
             <li data-toggle="tooltip" title="new note" @click="newNote"><i class="fa fa-file-text-o"></i></li>
             <li>
                 <div class="dropdown" data-toggle="tooltip" title="note order">
@@ -26,6 +25,7 @@
                         <li>Shuffle</li>
                         <li>Newest First</li>
                         <li>Oldest First</li>
+                        <input v-model="searchText" class="form-control" placeholder="search" />
                     </ul>
                 </div>
             </li>
@@ -60,13 +60,18 @@
         data() {
             return {
                 notes: this.$store.state.userNotes,
-                randomNote: ''
+                randomNote: '',
+                searchText: '',
+                noteOrder: ''
             }
         },
         methods: {
             newNote() {
                 this.$store.state.newNoteModal = true;
             }
+        },
+        computed: {
+
         },
         created()  {
             // Reset randomNote every two minutes
@@ -109,7 +114,7 @@
         padding: 5px;
     }
     .dropdown-menu li {
-        margin: 0;
+        margin: 1em;
         font-size: 1em;
         font-weight: bold;
     }

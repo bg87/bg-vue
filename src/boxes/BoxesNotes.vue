@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="notes">
-
             <div class="layout" v-if="!$store.state.user">
                 <ul class="grid">
                     <li v-for="note in $store.state.dummyNotes">
@@ -73,13 +72,10 @@
         height: 15em; 
         padding: 10px;
         font-weight: bold;
-        background-color: #ededed;
+        background-color: #00171F;
+        color: white;
     }
     .content:hover {
         cursor: pointer;
-    }
-    .tag {
-        position: relative;
-        top: 10em;
     }
 </style>

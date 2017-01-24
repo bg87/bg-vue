@@ -116,18 +116,18 @@
         padding: 0;
         text-align: center;
         font-size: 1.5em;
-        color: #42b983;
+        color:#007EA7;
     }
     .update {
-        border: 2px solid #42b983;
+        border: 2px solid #007EA7;
         border-radius: 3px;
         background-color: white;
-        color: #42b983;
+        color: #007EA7;
         margin-top:1em; 
         font-weight: bold;
     }
     .cancel {
-        color: #42b983; 
+        color: #007EA7; 
         float: left;
         text-decoration: none;
         font-size: 36px;

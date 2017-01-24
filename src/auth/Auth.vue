@@ -158,26 +158,26 @@
         padding: 0;
         text-align: center;
         font-size: 1.5em;
-        color: #42b983;
+        color: #007EA7;
     }
     .create-account {
         margin-top: 3em;
         text-align: center;
         font-size: 1.5em;
-        color: #42b983;
+        color: #007EA7;
     }
     .sign-in {
-        border: 2px solid #42b983;
+        border: 2px solid #007EA7;
         border-radius: 3px;
         background-color: white;
         color: #42b983; 
         font-weight: bold;
     }
     .sign-up {
-        border: 2px solid #42b983;
+        border: 2px solid #007EA7;
         border-radius: 3px;
         background-color: white;
-        color: #42b983; 
+        color: #007EA7; 
         font-weight: bold;
         float: left;
     }
