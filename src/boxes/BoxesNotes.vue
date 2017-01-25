@@ -20,7 +20,7 @@
                         <div class="card">
                             <div class="content">    
                                 <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                <a class="tag">{{ note.tag }}</a>
+                                <a class="tag" @click="searchTag(note.tag)">{{ note.tag }}</a>
                             </div>
                         </div> 
                     </li>
@@ -36,6 +36,17 @@
             openNoteView(note) {
                 this.$store.state.viewNote = true;
                 this.$store.state.selectedNote = note;
+            },
+            searchTag(tag) {
+                // Filter userNotes by the tag that was clicked
+                let notes = this.$store.state.userNotes;
+                let filteredNotes = [];
+                notes.forEach((note) => { 
+                    if(tag === note.tag) {
+                        filteredNotes.push(note);
+                    }
+                });
+                this.$store.state.userNotes = filteredNotes;
             }
         }
     }

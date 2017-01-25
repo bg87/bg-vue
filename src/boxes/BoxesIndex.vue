@@ -5,7 +5,7 @@
             
             <div class="headerNote" v-if="!$store.state.user">
                 <transition name="fade">
-                    <h3><em>Your personal note repository. Sign up and start making notes!</em></h3>
+                    <h3><em>A personal note repository for writers and creatives. Sign up and start making notes!</em></h3>
                 </transition>
             </div>
 
