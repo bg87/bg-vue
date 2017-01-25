@@ -23,8 +23,8 @@
                     <i class="fa fa-list" type="button" data-toggle="dropdown" title="note order"></i>
                     <ul class="dropdown-menu">
                         <li @click="shuffle">Shuffle</li>
-                        <li>Newest First</li>
-                        <li>Oldest First</li>
+                        <li @click="newest">Newest First</li>
+                        <li @click="oldest">Oldest First</li>
                         <input v-model="searchText" class="form-control" placeholder="search" />
                     </ul>
                 </div>
@@ -70,7 +70,30 @@
                 this.$store.state.newNoteModal = true;
             },
             shuffle() {
-                console.log('shuffle');
+                let notes = this.$store.state.userNotes;
+                this.$store.state.userNotes = notes.sort((a, b) => {
+                    return 0.5 - Math.random();
+                    });
+            },
+            newest() {
+                // Get all user notes
+                const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+                this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                    .then((response) => {
+                        this.$store.state.userNotes = response.body.notes;
+                    }, (error) => {
+                        console.log(error);
+                    });
+            },
+            oldest() {
+                // Get all user notes
+                const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+                this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                    .then((response) => {
+                        this.$store.state.userNotes = response.body.notes.reverse();
+                    }, (error) => {
+                        console.log(error);
+                    });
             }
         },
         computed: {
