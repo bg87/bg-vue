@@ -14,6 +14,7 @@ export const store = new Vuex.Store({
 
         // flash message
         message: false,
+        messageText: '',
 
         // Note data
         userNotes: '',

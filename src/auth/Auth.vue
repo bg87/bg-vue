@@ -92,7 +92,7 @@
                         localStorage.setItem('token', response.body.token);
                         localStorage.setItem('userId', response.body.userId);
                         this.$store.state.user = true;
-                        this.signInMessage();
+                        this.flashMessage();
                     }, (response) => {
                         console.log('Error creating user', response);
                     });
@@ -108,15 +108,16 @@
                         localStorage.setItem('token', response.body.token);
                         localStorage.setItem('userId', response.body.userId);
                         this.$store.state.user = true;
-                        this.signInMessage();
+                        this.flashMessage();
                     }, (response) => {
                         console.log('Auth failed');
                     });
             },
             // Show flash message for 2 seconds
-            signInMessage() {
+            flashMessage() {
                 let that = this;
                 that.$store.state.message = true;
+                that.$store.state.messageText = 'You just signed in!';
                 window.setTimeout(() => {
                     that.$store.state.message = false;
                 }, 2000);
@@ -170,7 +171,7 @@
         border: 2px solid #007EA7;
         border-radius: 3px;
         background-color: white;
-        color: #42b983; 
+        color: #007EA7; 
         font-weight: bold;
     }
     .sign-up {

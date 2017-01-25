@@ -11,27 +11,20 @@
         </div>
     </transition>
 
-    <!-- Sign in message -->
-    <transition name="modal">
-      <div class="flash-message" v-if="$store.state.message">
-        <div>
-          <p>You're signed in!</p>
-        </div>
-      </div>
-    </transition>
+    <flash-message></flash-message>
   </div>
 </template>
 
 <script>
   import Nav from './Nav.vue';
   import Auth from './auth/Auth.vue';
+  import FlashMessage from './shared/flashMessage.vue';
 
 export default {
   name: 'app',
   data() {
     return {
-      signIn: false,
-      message: 'You just signed in!'
+      signIn: false
     }
   },
   methods: {
@@ -54,7 +47,8 @@ export default {
           });
   },
   components: {
-            'auth': Auth
+            'auth': Auth,
+            'flash-message': FlashMessage
         }
 }
 </script>
@@ -86,21 +80,4 @@ export default {
     left: 1em;
     padding: 8px;
   }
-  .flash-message p {
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-  }
-  .modal-enter {
-        opacity: 0;
-    }
-    .modal-enter-active {
-        transition: opacity 1s;
-    }
-    .modal-leave {
-        opacity: 0;
-    }
-    .modal-leave-active {
-        transition: opacity 1s;
-    }
 </style>

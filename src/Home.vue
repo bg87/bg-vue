@@ -45,7 +45,7 @@
         margin-top: 30px;
     }
     .social:hover {
-       -webkit-transform: rotateZ(15deg); /* Safari */
+       -webkit-transform: rotateZ(15deg); 
         transform: rotateZ(15deg);
     }
 

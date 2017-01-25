@@ -22,7 +22,7 @@
                 <div class="dropdown" data-toggle="tooltip" title="note order">
                     <i class="fa fa-list" type="button" data-toggle="dropdown" title="note order"></i>
                     <ul class="dropdown-menu">
-                        <li>Shuffle</li>
+                        <li @click="shuffle">Shuffle</li>
                         <li>Newest First</li>
                         <li>Oldest First</li>
                         <input v-model="searchText" class="form-control" placeholder="search" />
@@ -68,12 +68,24 @@
         methods: {
             newNote() {
                 this.$store.state.newNoteModal = true;
+            },
+            shuffle() {
+                console.log('shuffle');
             }
         },
         computed: {
 
         },
         created()  {
+            // Get all user notes
+            const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+            this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                .then((response) => {
+                    this.$store.state.userNotes = response.body.notes;
+                }, (error) => {
+                    console.log(error);
+                });
+                
             // Reset randomNote every two minutes
             this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
             window.setInterval(() => {

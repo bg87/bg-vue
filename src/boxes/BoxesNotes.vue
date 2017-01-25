@@ -37,16 +37,6 @@
                 this.$store.state.viewNote = true;
                 this.$store.state.selectedNote = note;
             }
-        },
-        created() {
-            // Get all user notes
-            const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-            this.$http.get(this.$store.state.serverURL + '/notes' + token)
-                .then((response) => {
-                    this.$store.state.userNotes = response.body.notes;
-                }, (error) => {
-                    console.log(error);
-                });
         }
     }
 </script>

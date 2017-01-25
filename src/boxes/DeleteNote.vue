@@ -55,12 +55,22 @@
                             .then((response) => {
                                 this.$store.state.userNotes = response.body.notes;
                                 this.$store.state.viewNote = false;
+                                this.flashMessage();
                             }, (error) => {
                                 console.log(error);
                             });
                     }, (response) => {
                         console.log(response);
                     });
+            },
+            // Show flash message for 2 seconds
+            flashMessage() {
+                let that = this;
+                that.$store.state.message = true;
+                that.$store.state.messageText = 'Note deleted!';
+                window.setTimeout(() => {
+                    that.$store.state.message = false;
+                }, 2000);
             }
         }
     }

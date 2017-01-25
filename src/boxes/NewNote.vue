@@ -87,12 +87,22 @@
                             .then((response) => {
                                 console.log('response', response.body);
                                 this.$store.state.userNotes = response.body.notes;
+                                this.flashMessage();
                             }, (error) => {
                                 console.log(error);
                             });
                     }, (error) => {
                         console.log(error);
                     });
+            },
+            // Show flash message for 2 seconds
+            flashMessage() {
+                let that = this;
+                that.$store.state.message = true;
+                that.$store.state.messageText = 'Note saved!';
+                window.setTimeout(() => {
+                    that.$store.state.message = false;
+                }, 2000);
             }
         }
     }
