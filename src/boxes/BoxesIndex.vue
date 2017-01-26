@@ -97,16 +97,18 @@
                         console.log(error);
                     });
             },
+            // Search notes for keyword or words
             search() {
-               // if(this.searchText) {
-                   // let filteredNotes = [];
+                if(this.searchText) {
+                    let notes = [];
 
-                    //this.$store.state.userNotes.filter((note) => {
-                       // filteredNotes.push(note.content.match(this.searchText));
-                   // });
-                    
-                    //this.$store.state.userNotes = filteredNotes;
-               // }
+                    this.$store.state.userNotes.filter((note) => {
+                        if(note.content.search(this.searchText) > -1) {
+                            notes.push(note);
+                        }
+                    });
+                    this.$store.state.userNotes = notes;
+                }
             }
         },
         created()  {

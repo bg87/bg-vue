@@ -19,6 +19,7 @@ export const store = new Vuex.Store({
         // Note data
         userNotes: '',
         searchText: '',
+        filteredNotes: [],
         viewNote: false,
         newNoteModal: false,
         deleteNoteModal: false,
