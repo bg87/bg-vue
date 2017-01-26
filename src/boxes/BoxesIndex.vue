@@ -25,12 +25,14 @@
                         <li @click="shuffle">Shuffle</li>
                         <li @click="newest">Newest First</li>
                         <li @click="oldest">Oldest First</li>
-                        <input v-model="searchText" class="form-control" placeholder="search" />
+                        <div class="form-group">
+                            <input v-model="searchText" class="form-control" placeholder="search"/>
+                            <button @click="search">GO</button>
+                        </div>
                     </ul>
                 </div>
             </li>
         </ul>
-
         <transition name="fade">
             <new-note v-if="$store.state.newNoteModal"></new-note>
             <delete-note v-if="$store.state.deleteNoteModal"></delete-note>
@@ -61,8 +63,8 @@
             return {
                 notes: this.$store.state.userNotes,
                 randomNote: '',
-                searchText: '',
-                noteOrder: ''
+                noteOrder: '',
+                searchText: ''
             }
         },
         methods: {
@@ -94,10 +96,18 @@
                     }, (error) => {
                         console.log(error);
                     });
-            }
-        },
-        computed: {
+            },
+            search() {
+               // if(this.searchText) {
+                   // let filteredNotes = [];
 
+                    //this.$store.state.userNotes.filter((note) => {
+                       // filteredNotes.push(note.content.match(this.searchText));
+                   // });
+                    
+                    //this.$store.state.userNotes = filteredNotes;
+               // }
+            }
         },
         created()  {
             // Get all user notes
@@ -152,6 +162,15 @@
         margin: 1em;
         font-size: 1em;
         font-weight: bold;
+    }
+    button {
+        border: 2px solid #007EA7;
+        border-radius: 3px;
+        background-color: #007EA7;
+        color: white;
+        margin-top:1em; 
+        font-weight: bold;
+        width: 100%;
     }
     .fade-enter {
         opacity: 0;

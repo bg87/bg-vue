@@ -14,18 +14,20 @@
                 </ul>
             </div>
 
-            <div class="layout" v-if="$store.state.user">
-                <ul class="grid">
-                    <li v-for="note in $store.state.userNotes">
-                        <div class="card">
-                            <div class="content">    
-                                <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                <a class="tag" @click="searchTag(note.tag)">{{ note.tag }}</a>
-                            </div>
-                        </div> 
-                    </li>
-                </ul>
-            </div>
+                <div class="layout" v-if="$store.state.user">
+                    <ul class="grid">
+                        <transition-group name="flip">
+                            <li v-for="(note, index) in $store.state.userNotes" :key="index">
+                                <div class="card">
+                                    <div class="content">   
+                                        <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
+                                        <a class="tag" @click="searchTag(note.tag)">{{ note.tag }}</a>
+                                    </div>
+                                </div> 
+                            </li>
+                        </transition-group>
+                    </ul>
+                </div>
         </div>
     </div>
 </template>
@@ -78,5 +80,8 @@
     }
     .content:hover {
         cursor: pointer;
+    }
+    .flip-move {
+        transition: transform 1s;
     }
 </style>

@@ -5,7 +5,7 @@
     </transition>
 
     <!-- Auth modal -->
-    <transition name="message">
+    <transition name="modal">
         <div v-if="$store.state.authModal">
             <auth></auth>
         </div>
@@ -80,4 +80,16 @@ export default {
     left: 1em;
     padding: 8px;
   }
+  .modal-enter {
+        opacity: 0;
+    }
+    .modal-enter-active {
+        transition: opacity 1s;
+    }
+    .modal-leave {
+        opacity: 0;
+    }
+    .modal-leave-active {
+        transition: opacity 1s;
+    }
 </style>
