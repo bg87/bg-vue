@@ -16,7 +16,7 @@
                         <button class="no"
                                 @click.prevent
                                 @click="closeModal">
-                            I've made a huge mistake.
+                            No thanks.
                         </button>
                         <button class="yes"
                                 @click.prevent 
@@ -131,5 +131,38 @@
         color: #007EA7; 
         font-weight: bold;
         float: left;
+    }
+    @media (max-width: 720px) {
+        .modal-container {
+            width: 80%;
+            margin: 0px auto;
+            padding: 20px 30px;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+            transition: all .3s ease;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        .modal-header {
+            padding: 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #007EA7;
+        }
+        .create-account {
+            margin-top: 3em;
+            text-align: center;
+            font-size: 1.2em;
+            color: #007EA7;
+        }
+    }
+    @media (max-width: 500) {
+        .no {
+            display: block;
+            margin: auto;
+        }
+        .yes {
+            display: block;
+        }
     }
 </style>

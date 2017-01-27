@@ -12,7 +12,6 @@
                     <a href="https://www.linkedin.com/in/brandon-gladen-19a452109"><img src="./assets/linkedin.png" alt="linkdedin" class="social" /></a>
                 </div>
             </div>
-
         </div>
         <div class="wireframe">
             <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
@@ -25,6 +24,37 @@
                     <img class="logo" src="./assets/vue.png" alt="vue" />
                 </div>
             </div>
+        </div>
+
+        <div class="story">
+            <div class=" GCI">
+                <h2>I used to do this.</h2>
+                <ul class="GCIdivs">
+                    <li>
+                        <div class="imgContainer1">
+                            <div class="caption">
+                                Digging a hole.
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgContainer2">
+                            <div class="caption">
+                                Putting pipe in a hole.
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgContainer3">
+                            <div class="caption">
+                                Removing pipe from a hole.
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+
         </div>
     </div>
 </template>
@@ -89,7 +119,57 @@
     .logo:hover {
         filter: grayscale(0%);        
     }
-
+    .story {
+        margin-bottom: 3em;
+    }
+    .GCIdivs {
+        margin: auto;
+        text-align: center;
+        width: 100%;
+    }
+    .GCIdivs li {
+        margin: 0;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .GCIdivs li div {
+        margin: 3px;
+    }
+    .imgContainer1 {
+        background: url('./assets/gci.png');
+        background-size: cover;
+        width: 25em;
+        height: 20em;
+        text-align: center;
+        margin: 1em;
+    }
+    .imgContainer2 {
+        background: url('./assets/pipe.png');
+        background-size: cover;
+        width: 25em;
+        height: 20em;
+        text-align: center;
+        margin: 1em;
+    }
+    .imgContainer3 {
+        background: url('./assets/wreckingBall.png');
+        background-size: cover;
+        width: 25em;
+        height: 20em;
+        text-align: center;
+        margin: 1em;
+    }
+    .caption {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding-top: 1em;
+        height: 3.5em;
+        font-weight: bold;
+    }
+    .GCI h2 {
+        text-align: center;
+        margin: 5em;
+    }
     @media (max-width: 400px) {
         .wireframe {
             width: 100%;
@@ -138,5 +218,36 @@
             -o-background-size: cover;
             background-size: cover;
         }
+        .GCI h2 {
+        text-align: center;
+        margin: 5em;
+        font-size: 1.5em;
+    }
+     }
+     @media (max-width: 775px) {
+         .imgContainer1 {
+                background: url('./assets/gci.png');
+                background-size: cover;
+                width: 20em;
+                height: 15em;
+                text-align: center;
+                margin: 1em;
+            }
+            .imgContainer2 {
+                background: url('./assets/pipe.png');
+                background-size: cover;
+                width: 20em;
+                height: 15em;
+                text-align: center;
+                margin: 1em;
+            }
+            .imgContainer3 {
+                background: url('./assets/wreckingBall.png');
+                background-size: cover;
+                width: 20em;
+                height: 15em;
+                text-align: center;
+                margin: 1em;
+            }
      }
 </style>

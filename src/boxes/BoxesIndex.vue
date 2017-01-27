@@ -140,12 +140,12 @@
 <style scoped>
     header {
         width: 100%;
+        height: 15em;
     }
     .headerNote {
         text-align: center;
         width: 60%;
         margin: auto;
-        height: 12em;
     }
     .sidebar {
         position: fixed;
@@ -185,5 +185,29 @@
     }
     .fade-leave-active {
         transition: opacity 1s;
+    }
+    @media (max-width: 700px) {
+       header {
+            width: 100%;
+            height: 12em;
+            overflow: hidden;
+        }
+        .headerNote {
+            text-align: center;
+            width: 60%;
+            margin: auto;
+        }
+    }
+    @media (max-width: 400px) {
+        header {
+            width: 100%;
+            height: 10em;
+            overflow: hidden;
+        }
+        .headerNote {
+            text-align: center;
+            width: 60%;
+            margin: auto;
+        }
     }
 </style>

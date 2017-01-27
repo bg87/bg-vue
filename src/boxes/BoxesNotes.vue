@@ -84,4 +84,30 @@
     .flip-move {
         transition: transform 1s;
     }
+    @media (max-width: 700px) {
+        .card {
+            width: 12em;
+            height: 12em;
+            padding: 10px; 
+        }
+        .grid li {
+            display: inline-block;
+            margin: 3px 3px 3px 3px;
+            vertical-align: top;
+            
+        }
+    }
+    @media (max-width: 400px) {
+        .card {
+            width: 10em;
+            height: 10em;
+            padding: 10px; 
+        }
+        .grid li {
+            display: inline-block;
+            margin: 2px 2px 2px 2px;
+            vertical-align: top;
+            overflow: hidden;
+        }
+    }
 </style>
