@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="main">
+        <div class="wireframe">
             <app-nav></app-nav>
             <div class="info">
                 <h1>Brandon Gladen</h1>
@@ -8,12 +8,10 @@
                 <p>(218) 556-4588</p>
                 <p>me@brandongladen.com</p>
                 <div>
-                    <a href="http://github.com/bg87"><img src="./assets/github.png" alt="github" class="social" /></a>
-                    <a href="https://www.linkedin.com/in/brandon-gladen-19a452109"><img src="./assets/linkedin.png" alt="linkdedin" class="social" /></a>
+                    <a href="http://github.com/bg87"><img src="./assets/github2.png" alt="github" class="social" /></a>
+                    <a href="https://www.linkedin.com/in/brandon-gladen-19a452109"><img src="./assets/linkedin2.png" alt="linkdedin" class="social" /></a>
                 </div>
             </div>
-        </div>
-        <div class="wireframe">
             <img  src="./assets/icarus.png" alt="icarus" class="icarus"/>
             <div class="about">
                 <h1>I make websites and applications using a variety of languages and frameworks.</h1>
@@ -66,13 +64,10 @@
 </script>
 
 <style scoped> 
-    .main {
-        background: linear-gradient(to right bottom, white 50%, #d5e0f6 50%);
-        height: 100vh;
-    }
     .info {
         text-align: center;
         margin-top: 30px;
+        color: white;
     }
     .social:hover {
        -webkit-transform: rotateZ(15deg); 
@@ -120,7 +115,7 @@
         filter: grayscale(0%);        
     }
     .story {
-        margin-bottom: 3em;
+        margin-bottom: 4em;
     }
     .GCIdivs {
         margin: auto;
@@ -225,6 +220,16 @@
     }
      }
      @media (max-width: 775px) {
+         .wireframe {
+            width: 100%;
+            height: 100%;
+        
+            background: url('assets/wireframe.png') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
          .imgContainer1 {
                 background: url('./assets/gci.png');
                 background-size: cover;

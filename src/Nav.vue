@@ -80,7 +80,11 @@
     .openNav {
         font-size: 30px;
         cursor: pointer;
-        margin-left:10px;
+        margin-left: 10px;
+        color: white;
+        background-color: #00171F;
+        padding: 5px 5px;
+        border-radius: 0px 0px 5px 5px ;
     }
     hr {
         width: 60%;
