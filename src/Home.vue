@@ -49,21 +49,78 @@
                             </div>
                         </div>
                     </li>
-                </ul>
-                
+                </ul> 
             </div>
-
         </div>
+
+        <div class="now">
+            <h2>Now I do this.</h2>
+                <div class="code">
+                    <transition name="slide-fade">
+                        <h4 v-if="trigger1">app.set('port', process.env.PORT || 3000);</h4>
+                    </transition>
+                    <transition name="slide-fade">
+                        <h4 v-if="trigger2">app.listen(app.get('port'), function() {</h4>
+                        </transition>
+                    <transition name="slide-fade">
+                        <h4 v-if="trigger3">console.log('Listening on port: ', app.get('port'));</h4>
+                        </transition>
+                    <transition name="slide-fade">
+                        <h4 v-if="trigger4">});<span class="cursor" v-if="cursor">&verbar;</span></h4>
+                    </transition>
+                </div>
+        </div>
+
+        <!--<contact></contact>-->
     </div>
 </template>
 
 <script>
+    import Contact from './shared/Contact.vue';
+
     export default {
-        
+        data() {
+            return {
+                trigger1: false,
+                trigger2: false,
+                trigger3: false,
+                trigger4: false,
+                cursor: false
+            }
+        },
+        methods: {
+            handleScroll(event) {
+                console.log('scroll:', window.pageYOffset);
+                if(window.pageYOffset > 1100) {
+                    this.trigger1 = true;
+                }
+                if(window.pageYOffset > 1200) {
+                    this.trigger2 = true;
+                }
+                if(window.pageYOffset > 1400) {
+                    this.trigger3 = true;
+                }
+                if(window.pageYOffset > 1500) {
+                    this.trigger4 = true;
+                }
+            }
+        },
+        created() {
+            window.addEventListener('scroll', this.handleScroll);
+            window.setInterval(() => {
+                this.cursor = !this.cursor;
+            }, 800)
+        },
+        destroyed() {
+            window.removeEventListener('scroll', this.handleScroll);
+        },
+        components: {
+            'contact': Contact
+        }
     }
 </script>
 
-<style scoped> 
+<style scoped>
     .info {
         text-align: center;
         margin-top: 30px;
@@ -97,7 +154,7 @@
         background-size: cover;
     }
     .about {
-        padding: 8em;
+        padding: 8em 8em 0em 8em;
         text-align: center;
         color: white;
     }
@@ -115,12 +172,17 @@
         filter: grayscale(0%);        
     }
     .story {
-        margin-bottom: 4em;
+        background: rgba(179, 179, 179, 1);
+        background: -webkit-linear-gradient(top, rgba(166, 166, 166, 1), rgba(179, 179, 179, .1)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom, rgba(166, 166, 166, 1), rgba(179, 179, 179, .1)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom, rgba(166, 166, 166, 1), rgba(179, 179, 179, .1)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom, rgba(166, 166, 166, 1), rgba(179, 179, 179, .1)); /* Standard syntax */
     }
     .GCIdivs {
         margin: auto;
         text-align: center;
         width: 100%;
+        padding-bottom:3em;
     }
     .GCIdivs li {
         margin: 0;
@@ -163,7 +225,29 @@
     }
     .GCI h2 {
         text-align: center;
-        margin: 5em;
+        margin: 0em 5em 5em 5em;
+        padding-top: 3em;
+        color: white;
+    }
+    .now {
+        width: 100%;
+        height: 100vh;
+    }
+    .now h2 {
+        text-align: center;
+        padding-top:3em;
+    }
+    .code {
+       width: 80%;
+       padding:3%;
+       margin: auto;
+       margin-top: 8em;
+       background-color: black;
+       border-radius: 5px;
+       color: #e3e3e3;
+    }
+    .cursor {
+        background-color: white;
     }
     @media (max-width: 400px) {
         .wireframe {
@@ -214,11 +298,12 @@
             background-size: cover;
         }
         .GCI h2 {
-        text-align: center;
-        margin: 5em;
-        font-size: 1.5em;
-    }
+            text-align: center;
+            margin: 5em;
+            font-size: 1.5em;
+        }
      }
+
      @media (max-width: 775px) {
          .wireframe {
             width: 100%;
@@ -255,4 +340,12 @@
                 margin: 1em;
             }
      }
+
+    .slide-fade-enter-active {
+        transition: all 1s ease;
+    }
+    .slide-fade-enter {
+        transform: translateX(50%);
+        opacity: 0;
+    }
 </style>

@@ -75,12 +75,24 @@
         margin: auto;
     }
     .note .content {
-        margin-top:1em;
+        margin-top: 1em;
         font-size: 2em;
     }
     .note .tag {
         font-weight: bold;
         vertical-align: bottom;
         margin-bottom:3em;
+    }
+    @media(max-width: 600px) {
+        .note .content {
+            margin-top: 1em;
+            font-size: 1.5em;
+        }
+    }
+    @media(max-width: 400px) {
+        .note .content {
+            margin-top: 1em;
+            font-size: 1.2em;
+        }
     }
 </style>
