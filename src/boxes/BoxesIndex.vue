@@ -1,53 +1,32 @@
 <template>
-    <div class="main">
+    <div>
         <header>
             <app-nav></app-nav>
             
-            <div class="headerNote" v-if="!$store.state.user">
+            <div class="header-note" v-if="!$store.state.user">
                 <transition name="fade">
-                    <h3><em>A personal note repository for writers and creatives. Sign up and start making notes!</em></h3>
+                    <h3><em>A personal note repository for writers and creatives.</em></h3>
                 </transition>
             </div>
 
-            <div class="headerNote" v-if="$store.state.user">
+            <div class="header-note" v-if="$store.state.user">
                 <transition name="fade">
                     <h3 v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></h3>
                 </transition>
             </div>
         </header>
 
-        <ul class="sidebar" v-if="$store.state.user">
-            <li data-toggle="tooltip" title="new note" @click="newNote"><i class="fa fa-file-text-o"></i></li>
-            <li>
-                <div class="dropdown" data-toggle="tooltip" title="note order">
-                    <i class="fa fa-list" type="button" data-toggle="dropdown" title="note order"></i>
-                    <ul class="dropdown-menu">
-                        <li @click="shuffle">Shuffle</li>
-                        <li @click="newest">Newest First</li>
-                        <li @click="oldest">Oldest First</li>
-                        <div class="form-group">
-                            <input v-model="searchText" class="form-control" placeholder="search"/>
-                            <button @click="search">GO</button>
-                        </div>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+        <boxes-notes></boxes-notes>                        
+
+        <transition name="fade">
+            <view-note></view-note>
+        </transition>
+
         <transition name="fade">
             <new-note v-if="$store.state.newNoteModal"></new-note>
             <delete-note v-if="$store.state.deleteNoteModal"></delete-note>
             <edit-note v-if="$store.state.editNoteModal"></edit-note>
         </transition>
-
-        <div>
-            <transition name="fade">
-                <div>
-                    <boxes-notes></boxes-notes>
-
-                    <view-note></view-note>
-                </div>
-            </transition>
-        </div>
     </div>
 </template>
 
@@ -61,10 +40,7 @@
     export default {
         data() {
             return {
-                notes: this.$store.state.userNotes,
-                randomNote: '',
-                noteOrder: '',
-                searchText: ''
+                notes: this.$store.state.userNotes
             }
         },
         methods: {
@@ -140,39 +116,11 @@
 <style scoped>
     header {
         width: 100%;
-        height: 15em;
     }
-    .headerNote {
+    .header-note {
         text-align: center;
         width: 60%;
-        margin: auto;
-    }
-    .sidebar {
-        position: fixed;
-        padding: 8px;
-        margin: 0;
-    }
-    .sidebar li {
-        margin-bottom: 10px;
-        font-size: 30px;
-        cursor: pointer;
-    }
-    .dropdown-menu {
-        padding: 5px;
-    }
-    .dropdown-menu li {
-        margin: 1em;
-        font-size: 1em;
-        font-weight: bold;
-    }
-    button {
-        border: 2px solid #007EA7;
-        border-radius: 3px;
-        background-color: #007EA7;
-        color: white;
-        margin-top:1em; 
-        font-weight: bold;
-        width: 100%;
+        margin: 2em auto;
     }
     .fade-enter {
         opacity: 0;
@@ -185,29 +133,5 @@
     }
     .fade-leave-active {
         transition: opacity .4s;
-    }
-    @media (max-width: 700px) {
-       header {
-            width: 100%;
-            height: 12em;
-            overflow: hidden;
-        }
-        .headerNote {
-            text-align: center;
-            width: 60%;
-            margin: auto;
-        }
-    }
-    @media (max-width: 400px) {
-        header {
-            width: 100%;
-            height: 10em;
-            overflow: hidden;
-        }
-        .headerNote {
-            text-align: center;
-            width: 60%;
-            margin: auto;
-        }
     }
 </style>

@@ -97,6 +97,7 @@
                         console.log('Error creating user', response);
                     });
             },
+            // Sign in and get notes
             signIn() {
                 // close modal
                 this.$store.state.authModal = false;
@@ -109,6 +110,15 @@
                         localStorage.setItem('userId', response.body.userId);
                         this.$store.state.user = true;
                         this.flashMessage();
+                        // Get the user's notes
+                        this.$http.get(this.$store.state.serverURL + '/notes' + token)
+                            .then((response) => {
+                                console.log('response', response.body);
+                                this.$store.state.userNotes = response.body.notes;
+                                this.flashMessage();
+                            }, (error) => {
+                                console.log(error);
+                            });
                     }, (response) => {
                         console.log('Auth failed');
                     });
