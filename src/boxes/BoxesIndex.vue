@@ -178,13 +178,13 @@
         opacity: 0;
     }
     .fade-enter-active {
-        transition: opacity 1s;
+        transition: opacity .4s;
     }
     .fade-leave {
         opacity: 0;
     }
     .fade-leave-active {
-        transition: opacity 1s;
+        transition: opacity .4s;
     }
     @media (max-width: 700px) {
        header {

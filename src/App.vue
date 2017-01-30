@@ -12,6 +12,7 @@
     </transition>
 
     <flash-message></flash-message>
+
   </div>
 </template>
 
@@ -68,7 +69,7 @@ export default {
   }
   h1, h2, h3 {
     font-weight: normal;
-    margin:0;
+    margin: 0;
   }
   .flash-message {
     background-color: #42b983;
@@ -84,12 +85,12 @@ export default {
         opacity: 0;
     }
     .modal-enter-active {
-        transition: opacity 1s;
+        transition: opacity .4s;
     }
     .modal-leave {
         opacity: 0;
     }
     .modal-leave-active {
-        transition: opacity 1s;
+        transition: opacity .4s;
     }
 </style>

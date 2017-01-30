@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div id="mySidenav" class="sidenav">
         <a class="closebtn" @click="closeNav()">&times;</a>
         
@@ -13,7 +14,7 @@
             </div>
         </div>
         
-        <span class="openNav" @click="openNav()">&#9776;</span>
+        <div class="openNav"><span @click="openNav()">&#9776;</span></div>
     </div>
 </template>
 
@@ -47,9 +48,9 @@
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #111;
+        background-color: #2C3D55;
         overflow-x: hidden;
-        transition: 0.5s;
+        transition: 0.4s;
         padding-top: 60px;
         text-align: center;
     }
@@ -78,13 +79,16 @@
         cursor: pointer;
     }
     .openNav {
-        font-size: 30px;
-        cursor: pointer;
-        margin-left: 10px;
+        text-align: center;
         color: white;
-        background-color: #00171F;
-        padding: 5px 5px;
-        border-radius: 0px 0px 5px 5px ;
+        padding: 1px 5px;
+        margin: 0em auto .5em;
+    }
+    .openNav span {
+        font-size: 25px;
+        cursor: pointer;
+        padding: 1px 5px;
+        color: black;
     }
     hr {
         width: 60%;
