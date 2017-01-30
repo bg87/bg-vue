@@ -5,9 +5,11 @@
                 <ul class="grid">
                     <li v-for="note in $store.state.dummyNotes">
                         <div class="card">
-                            <div class="content">    
-                                <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                <a class="tag">{{ note.tag }}</a>
+                            <div class="inner-card">
+                                <p>{{ note.content.substring(0,100) }}</p>
+                            </div>
+                            <div class="tag">
+                                <a>{{ note.tag }}</a>
                             </div>
                         </div> 
                     </li>
@@ -19,9 +21,11 @@
                         <transition-group name="flip">
                             <li v-for="(note, index) in $store.state.userNotes" :key="index">
                                 <div class="card">
-                                    <div class="content">   
+                                    <div class="inner-card">   
                                         <p @click="openNoteView(note)">{{ note.content.substring(0,100) }}</p>
-                                        <a class="tag" @click="searchTag(note.tag)">{{ note.tag }}</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a @click="searchTag(note.tag)">{{ note.tag }}</a>
                                     </div>
                                 </div> 
                             </li>
@@ -78,8 +82,16 @@
         background-color: #00171F;
         color: white;
     }
-    .content:hover {
+    .inner-card {
+        width: 100%;
+        height: 80%;
+        overflow: hidden;
+    }
+    .inner-card:hover {
         cursor: pointer;
+    }
+    .tag {
+        padding-top: 1em;
     }
     .flip-move {
         transition: transform 1s;
