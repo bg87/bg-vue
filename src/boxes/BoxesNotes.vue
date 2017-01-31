@@ -16,29 +16,34 @@
         </div>
 
         <div class="layout" v-if="$store.state.user">
-            <ul class="grid">
-                <ul class="options" v-if="$store.state.user" v-bind:class="{ sticky: sticky }">
-                    <li data-toggle="tooltip" title="new note" @click="newNote"><i class="fa fa-file-text-o"></i></li>
-                    <li>
-                        <div class="dropdown" data-toggle="tooltip" title="note order">
-                            <i class="fa fa-list" type="button" data-toggle="dropdown" title="note order"></i>
-                            <ul class="dropdown-menu">
-                                <li @click="shuffle">Shuffle</li>
-                                <li @click="newest">Newest First</li>
-                                <li @click="oldest">Oldest First</li>
-                                <div class="form-group">
-                                    <input v-model="searchText" class="form-control" placeholder="search"/>
-                                    <button @click="search">GO</button>
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
+            <div class="navbar" v-bind:class="{ sticky: sticky }">
+                <ul v-if="$store.state.user">
+                    <li data-toggle="tooltip" 
+                        title="new note" 
+                        @click="newNote"><i 
+                        class="fa fa-file-text-o"></i></li>
+                    <li @click="shuffle"
+                        data-toggle="tooltip"
+                        title="shuffle notes" ><span class="fa fa-random"></span></li>
+                    <li @click="newest"
+                        data-toggle="tooltip"
+                        title="newest first" ><span class="fa fa-chevron-up"></span></li>
+                    <li @click="oldest"
+                        data-toggle="tooltip"
+                        title="oldest first" ><span class="fa fa-chevron-down"></span></li>
                 </ul>
+                <div class="search">
+                    <input type="text" v-model="searchText" placeholder="search">
+                    <span>
+                        <button class="searcbtn" @click="search">Go</button>
+                    </span>
+                </div> 
+            </div>  
 
+            <ul class="grid">
                 <transition-group name="flip">
                     <li v-for="(note, index) in $store.state.userNotes" :key="index">
                         <div class="card">
-                            {{ sticky }}
                             <div class="inner-card">   
                                 <p @click="openNoteView(note)">{{ note.content }}</p>
                             </div>
@@ -124,13 +129,12 @@
             },
             // sticky header on scroll
             handleScroll(event) {
-                let grid_top = $(".grid").offset().top;
                 let window_top = $(window).scrollTop();
+                let layout_top = $(".layout").offset().top;
 
-                console.log(window_top);
-                if (window_top > grid_top) {
+                if (window_top > layout_top) {
                     this.sticky = true;
-                } else if(window_top <grid_top) {
+                } else if(window_top < layout_top) {
                     this.sticky = false;
                 }
             }
@@ -145,43 +149,45 @@
 </script>
 
 <style>
+    .layout {
+        width: 100%;
+        margin: auto;
+    }
     .notes {
         margin-bottom: 3em;
         margin-top: 2em;
     }
-    .options {
-        padding: 4px;
+    .navbar {
         background-color: white;
-    }
-    .options li {    
-        font-size: 30px;
-        cursor: pointer;
-        padding: .5em;
-    }
-    .dropdown-menu {
+        width: 85%;
+        margin: auto;
         padding: 5px;
+        display: inline;
     }
-    .dropdown-menu li {
-        margin: 1em;
-        font-size: 1em;
-        font-weight: bold;
+    .navbar ul {
+        text-align: center;
     }
-    button {
-        border: 2px solid #007EA7;
-        border-radius: 3px;
-        background-color: #007EA7;
-        color: white;
-        margin-top:1em; 
-        font-weight: bold;
-        width: 100%;
+    .navbar li {    
+       font-size: 30px;
+        cursor: pointer;
+        display: inline;
+        margin-right: 1em;
+    }
+    .search {
+        text-align: center;
+    }
+    .search input {
+        
+    }
+    .search button {
+       
     }
     .sticky {
-        margin-top: 0 !important;
+        width: 100%;
         position: fixed;
         top: 0;
-        width: 100%;
+        margin: 0;
         z-index: 100;
-        transition: .5s;
     }
     .grid {
         list-style: none;
