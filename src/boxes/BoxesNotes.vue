@@ -17,7 +17,7 @@
 
         <div class="layout" v-if="$store.state.user">
             <ul class="grid">
-                <ul class="options" v-if="$store.state.user">
+                <ul class="options" v-if="$store.state.user" v-bind:class="{ sticky: sticky }">
                     <li data-toggle="tooltip" title="new note" @click="newNote"><i class="fa fa-file-text-o"></i></li>
                     <li>
                         <div class="dropdown" data-toggle="tooltip" title="note order">
@@ -38,6 +38,7 @@
                 <transition-group name="flip">
                     <li v-for="(note, index) in $store.state.userNotes" :key="index">
                         <div class="card">
+                            {{ sticky }}
                             <div class="inner-card">   
                                 <p @click="openNoteView(note)">{{ note.content }}</p>
                             </div>
@@ -59,7 +60,8 @@
                 notes: this.$store.state.userNotes,
                 randomNote: '',
                 noteOrder: '',
-                searchText: ''
+                searchText: '',
+                sticky: false
             }
         },
         methods: {
@@ -119,7 +121,25 @@
                     });
                     this.$store.state.userNotes = notes;
                 }
+            },
+            // sticky header on scroll
+            handleScroll(event) {
+                let grid_top = $(".grid").offset().top;
+                let window_top = $(window).scrollTop();
+
+                console.log(window_top);
+                if (window_top > grid_top) {
+                    this.sticky = true;
+                } else if(window_top <grid_top) {
+                    this.sticky = false;
+                }
             }
+        },
+        created() {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        destroyed() {
+            window.removeEventListener('scroll', this.handleScroll);
         }
     }
 </script>
@@ -127,19 +147,16 @@
 <style>
     .notes {
         margin-bottom: 3em;
-        margin-top: 1em;
-    }
-    ul {
-        list-style: none;
+        margin-top: 2em;
     }
     .options {
         padding: 4px;
-        margin: 0;
+        background-color: white;
     }
-    .options li {
-        margin-bottom: 10px;
+    .options li {    
         font-size: 30px;
         cursor: pointer;
+        padding: .5em;
     }
     .dropdown-menu {
         padding: 5px;
@@ -157,6 +174,14 @@
         margin-top:1em; 
         font-weight: bold;
         width: 100%;
+    }
+    .sticky {
+        margin-top: 0 !important;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        transition: .5s;
     }
     .grid {
         list-style: none;

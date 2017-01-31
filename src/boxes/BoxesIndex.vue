@@ -88,15 +88,6 @@
             }
         },
         created()  {
-            // Get all user notes
-            const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-            this.$http.get(this.$store.state.serverURL + '/notes' + token)
-                .then((response) => {
-                    this.$store.state.userNotes = response.body.notes;
-                }, (error) => {
-                    console.log(error);
-                });
-                
             // Reset randomNote every two minutes
             this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
             window.setInterval(() => {
@@ -120,7 +111,7 @@
     .header-note {
         text-align: center;
         width: 60%;
-        margin: 2em auto;
+        margin: 4em auto;
     }
     .fade-enter {
         opacity: 0;
