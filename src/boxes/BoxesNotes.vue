@@ -176,11 +176,11 @@
     .search {
         text-align: center;
     }
-    .search input {
-        
-    }
     .search button {
-       
+       border: none;
+       background-color: #00171F;
+       color: white;
+       font-weight: bold;
     }
     .sticky {
         width: 100%;

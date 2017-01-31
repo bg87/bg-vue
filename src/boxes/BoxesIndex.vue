@@ -5,13 +5,13 @@
             
             <div class="header-note" v-if="!$store.state.user">
                 <transition name="fade">
-                    <h3><em>A personal note repository for writers and creatives.</em></h3>
+                    <p><em>A personal note repository for writers and creatives.</em></p>
                 </transition>
             </div>
 
             <div class="header-note" v-if="$store.state.user">
                 <transition name="fade">
-                    <h3 v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></h3>
+                    <p v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></p>
                 </transition>
             </div>
         </header>
@@ -112,6 +112,7 @@
         text-align: center;
         width: 60%;
         margin: 4em auto;
+        font-size: 1.5em;
     }
     .fade-enter {
         opacity: 0;
@@ -124,5 +125,10 @@
     }
     .fade-leave-active {
         transition: opacity .4s;
+    }
+    @media (max-width: 700px) {
+        .header-note {
+            font-size: 1.2em;
+        }
     }
 </style>
