@@ -11,7 +11,8 @@ var notes      = require('./routes/notes');
 // Serve favicon
 app.use(favicon(__dirname + '/favicon.ico'));
 
-// Enable all CORS requests
+// Enable all CORS requests and pre-flight requests
+app.options('*', cors());
 app.use(cors())
 
 // Body parser middleware
