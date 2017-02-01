@@ -4,16 +4,20 @@ var path       = require('path');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 var favicon    = require('serve-favicon');
-var cors       = require('cors')
 var users      = require('./routes/users');
 var notes      = require('./routes/notes');
 
 // Serve favicon
 app.use(favicon(__dirname + '/favicon.ico'));
 
-// Enable all CORS requests and pre-flight requests
-app.options('*', cors());
-app.use(cors())
+// Set headers
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+    next();
+});
+
 
 // Body parser middleware
 app.use(bodyParser.json());
