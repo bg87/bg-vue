@@ -1,6 +1,8 @@
 # bg-vue
 
-My personal site built with Vue.js.
+My personal site built with Vue.js, Node, and Mongodb.
+Currently deployed on a Digital Ocean VPS.
+http://www.brandongladen.com
 
 ## Build Setup
 
