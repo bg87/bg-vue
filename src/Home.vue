@@ -25,7 +25,7 @@
                     <div class="cell">
                         <div class="wrapper">
                             <p class="content">
-                                Here are some tools i use.
+                                Here are some tools I use.
                             </p>
                         </div>
                     </div>
