@@ -72,6 +72,7 @@
                 </div>
                 <div class="col-lg-12 col-sm-12 col-xs-12 seven">
                     <div class="cell text-center">
+                        <img src="./assets/icarus.png" alt="icarus" class="icarus" />
                         <p class="content">
                             Personal apps I'm working on.
                         </p>
@@ -181,10 +182,26 @@
         text-decoration: none;
     }
     .icarus {
-        
+        opacity: .04;
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
     }
 
     @media (max-width: 550px) {
+        .two {
+            background-color: #CCDAD1;
+            color: #CC0828;
+            text-align: center;
+        }
+        .three {
+            background-color: #CC0828;
+            color: #D3D5D7;
+            text-align: center;
+        }
         .tech-row-1 img {
             height: 50px;
             width: 50px;
@@ -207,6 +224,15 @@
             margin: 2em;
             font-size: 13px;
             font-weight: bold;
-        }   
+        } 
+        .icarus {
+        opacity: .04;
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }  
     } 
 </style>
