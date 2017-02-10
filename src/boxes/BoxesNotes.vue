@@ -16,7 +16,7 @@
         </div>
 
         <div class="layout" v-if="$store.state.user">
-            <div class="navbar" v-bind:class="{ sticky: sticky }">
+            <div class="navbar">
                 <ul v-if="$store.state.user">
                     <li data-toggle="tooltip" 
                         title="new note" 
@@ -44,7 +44,7 @@
                 <transition-group name="flip">
                     <li v-for="(note, index) in $store.state.userNotes" :key="index">
                         <div class="card">
-                            <div class="inner-card">   
+                            <div class="inner-card">  
                                 <p @click="openNoteView(note)">{{ note.content }}</p>
                             </div>
                             <div class="tag">
@@ -65,8 +65,7 @@
                 notes: this.$store.state.userNotes,
                 randomNote: '',
                 noteOrder: '',
-                searchText: '',
-                sticky: false
+                searchText: ''
             }
         },
         methods: {
@@ -130,12 +129,12 @@
             // sticky header on scroll
             handleScroll(event) {
                 let window_top = $(window).scrollTop();
-                let layout_top = $(".layout").offset().top;
+                let grid_top = $(".grid").offset().top - 110;
 
-                if (window_top > layout_top) {
-                    this.sticky = true;
-                } else if(window_top < layout_top) {
-                    this.sticky = false;
+                if (window_top > grid_top) {
+                    $('.navbar').addClass('sticky');
+                } else if(window_top < grid_top) {
+                    $('.navbar').removeClass('sticky');
                 }
             }
         },
@@ -146,6 +145,11 @@
             window.removeEventListener('scroll', this.handleScroll);
         }
     }
+
+    $(window).on("scroll", function() {
+        $("#navbar").css("top", Math.max(0, 20 - $(window).scrollTop()));
+    });
+
 </script>
 
 <style>
