@@ -207,7 +207,7 @@
         height: 15em; 
         padding: 10px;
         font-weight: bold;
-        background-color: #00171F;
+        background-color: #565D63;
         color: white;
     }
     .inner-card {

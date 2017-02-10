@@ -73,7 +73,7 @@
                         console.log(error);
                     });
             },
-            // Search notes for keyword or words
+            // Search notes for keyword or phrase
             search() {
                 if(this.searchText) {
                     let notes = [];

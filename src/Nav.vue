@@ -81,13 +81,12 @@
     .openNav {
         text-align: center;
         color: white;
-        padding: 1px 5px;
         margin: 0em auto .5em;
     }
     .openNav span {
         font-size: 25px;
         cursor: pointer;
-        padding: 1px 5px;
+        padding: 4px 10px;
         color: black;
     }
     hr {
