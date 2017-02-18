@@ -111,15 +111,7 @@
                         this.$store.state.user = true;
                         this.flashMessage();
                         // Set notes in store
-                        this.$store.state.userNotes = response.body.notes
-
-                        // Reset randomNote every two minutes
-                        let notes = this.$store.state.userNotes;
-
-                        this.$store.state.randomNote = notes[Math.floor(Math.random() * notes.length)];
-                        window.setInterval(() => {
-                            this.$store.state.randomNote = notes[Math.floor(Math.random() * notes.length)];
-                        }, 60000);
+                        this.$store.state.userNotes = response.body.notes;
                     }, (response) => {
                         console.log('Auth failed');
                     });

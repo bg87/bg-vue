@@ -11,9 +11,9 @@
 
                     <div class="header-note center-align" v-else-if="$store.state.user">
                         <transition name="fade">
-                            <p v-if="$store.state.randomNote">
+                            <p v-if="randomNote">
                                 <em>
-                                    {{ $store.state.randomNote.content.substring(0,200) }}
+                                    {{ randomNote.content.substring(0,200) }}
                                 </em>
                             </p>
                         </transition>
@@ -46,7 +46,8 @@
     export default {
         data() {
             return {
-                notes: this.$store.state.userNotes
+                notes: this.$store.state.userNotes,
+                randomNote: this.$store.state.randomNote
             }
         },
         methods: {
@@ -70,7 +71,7 @@
                     });
             },
             oldest() {
-                // Get all user notes
+                // Get all user notes and reverse
                 const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
                 this.$http.get(this.$store.state.serverURL + '/notes' + token)
                     .then((response) => {
@@ -92,6 +93,16 @@
                     this.$store.state.userNotes = notes;
                 }
             }
+        },
+        mounted() {
+            // Reset randomNote every two minutes
+            let notes = this.$store.state.userNotes;
+
+            this.randomNote = notes[Math.floor(Math.random() * notes.length)];
+
+            window.setInterval(() => {
+                this.randomNote = notes[Math.floor(Math.random() * notes.length)];
+            }, 60000);
         },
         components: {
             'boxes-notes': BoxesNotes,
