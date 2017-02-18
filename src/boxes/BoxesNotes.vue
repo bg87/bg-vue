@@ -20,22 +20,23 @@
                 <ul v-if="$store.state.user">
                     <li data-toggle="tooltip" 
                         title="new note" 
-                        @click="newNote"><i 
-                        class="fa fa-file-text-o"></i></li>
+                        @click="newNote">
+                        <i class="medium material-icons">note add</i>
+                        </li>
                     <li @click="shuffle"
                         data-toggle="tooltip"
-                        title="shuffle notes" ><span class="fa fa-random"></span></li>
+                        title="shuffle notes" ><i class="medium material-icons">shuffle</i></span></li>
                     <li @click="newest"
                         data-toggle="tooltip"
-                        title="newest first" ><span class="fa fa-chevron-up"></span></li>
+                        title="newest first" ><i class="medium material-icons">keyboard arrow up</i></span></li>
                     <li @click="oldest"
                         data-toggle="tooltip"
-                        title="oldest first" ><span class="fa fa-chevron-down"></span></li>
+                        title="oldest first" ><i class="medium material-icons">keyboard arrow down</i></span></li>
                 </ul>
                 <div class="search">
                     <input type="text" v-model="searchText" placeholder="search">
                     <span>
-                        <button class="searcbtn" @click="search">Go</button>
+                        <button @click="search">Go</button>
                     </span>
                 </div> 
             </div>  
@@ -179,6 +180,10 @@
     }
     .search {
         text-align: center;
+    }
+    .search input {
+        width: 10em;
+        margin: auto;
     }
     .search button {
        border: none;

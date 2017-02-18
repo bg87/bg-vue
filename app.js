@@ -4,11 +4,14 @@ var path       = require('path');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 var favicon    = require('serve-favicon');
+var cors       = require('cors');
 var users      = require('./routes/users');
 var notes      = require('./routes/notes');
 
 // Serve favicon
 app.use(favicon(__dirname + '/favicon.ico'));
+
+app.use(cors());
 
 // Set headers
 app.use(function (req, res, next) {
