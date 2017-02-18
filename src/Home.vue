@@ -168,7 +168,7 @@
         margin: 1.5em;
     }   
     .seven {
-        background: url('assets/wireframe.png') no-repeat center center fixed; 
+        background: url('assets/wireframe-min.png') no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;

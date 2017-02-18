@@ -112,7 +112,7 @@
 
 <style scoped>
     .parallax {
-        background: url('../assets/desk1.png') no-repeat center center fixed;
+        background: url('../assets/desk1-min.png') no-repeat center center fixed;
         background-size: cover;
     }
     header {
