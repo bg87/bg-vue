@@ -17,21 +17,21 @@
 
         <div class="layout" v-if="$store.state.user">
             <div class="navbar">
-                <ul v-if="$store.state.user">
+                <ul v-if="$store.state.user" class="cener-align">
                     <li data-toggle="tooltip" 
                         title="new note" 
                         @click="newNote">
-                        <i class="medium material-icons">note add</i>
+                        <i class="small material-icons">note add</i>
                         </li>
                     <li @click="shuffle"
                         data-toggle="tooltip"
-                        title="shuffle notes" ><i class="medium material-icons">shuffle</i></span></li>
+                        title="shuffle notes" ><i class="small material-icons">shuffle</i></span></li>
                     <li @click="newest"
                         data-toggle="tooltip"
-                        title="newest first" ><i class="medium material-icons">keyboard arrow up</i></span></li>
+                        title="newest first" ><i class="small material-icons">keyboard arrow up</i></span></li>
                     <li @click="oldest"
                         data-toggle="tooltip"
-                        title="oldest first" ><i class="medium material-icons">keyboard arrow down</i></span></li>
+                        title="oldest first" ><i class="small material-icons">keyboard arrow down</i></span></li>
                 </ul>
                 <div class="search">
                     <input type="text" v-model="searchText" placeholder="search">
@@ -182,7 +182,7 @@
         text-align: center;
     }
     .search input {
-        width: 10em;
+        width: 30em;
         margin: auto;
     }
     .search button {
