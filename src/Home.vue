@@ -60,6 +60,7 @@
                     </div>
                     <div class="col s12 m6 six">
                         <div class="cell center-align">
+                            <img src="./assets/icarus.png" alt="icarus" class="icarus" />
                             <div class="wrapper text-center">
                                 <p class="content">
                                     Or find me here
@@ -74,7 +75,6 @@
                     </div>
                     <div class="col s12 m12 seven">
                         <div class="cell center-align">
-                            <img src="./assets/icarus.png" alt="icarus" class="icarus" />
                             <p class="content">
                                 Personal apps I'm working on.
                             </p>
@@ -161,6 +161,7 @@
     .six {
         background-color: #CED0CE;
         color: #788585;
+        position: relative;
     }
     .social img {
         width: 55px;
@@ -168,12 +169,7 @@
         margin: 1.5em;
     }   
     .seven {
-        background: url('assets/wireframe-min.png') no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover; 
-        position: relative;
+        background-color: #2C3D55;
     }
     .seven .content {
         color: white;
