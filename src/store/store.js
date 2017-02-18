@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         // Server URL
-        serverURL: 'http://localhost:3000',
+        serverURL: 'http://brandongladen.com',
         // 'http://localhost:3000'
         
         // Auth data.
