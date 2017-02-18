@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <app-nav></app-nav>
+        <h3 class="center-align">Nothing to see here yet.</h3>
     </div>
 </template>
 
@@ -11,10 +11,8 @@
 </script>
 
 <style scoped>
-    .main {
-        background-color: #3F88C5;
-        margin: 0;
-        width: 100%;
-        height: 100vh;
+    h3 {
+        margin-top: 5em;
+        font-weight: 100;
     }
 </style>

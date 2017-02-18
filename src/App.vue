@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <app-nav></app-nav>
     <transition name="modal" appear>
       <router-view></router-view>
     </transition>
@@ -49,7 +50,8 @@ export default {
   },
   components: {
             'auth': Auth,
-            'flash-message': FlashMessage
+            'flash-message': FlashMessage,
+            'app-nav': Nav
         }
 }
 </script>

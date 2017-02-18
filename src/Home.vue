@@ -1,21 +1,21 @@
 <template>
     <div>
-        <app-nav></app-nav>
+
         <div class="mainContainer">
             
             <div class="container-fluid">
-                <div class="row no-gutter">
-                    <div class="col-lg-6 col-sm-6 col-xs-12 one">
-                        <div class="cell">
+                <div class="row">
+                    <div class="col s12 m6 one">
+                        <div class="cell center-align">
                             <div class="wrapper">
                                 <img src="./assets/logo1.png" alt="logo" class="logo" />
-                                <h3>Brandon Gladen</h3>
-                                <h4><em>Web Developer</em></h4>
+                                <p>Brandon Gladen</p>
+                                <p><em>Web Developer</em></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12 two">
-                        <div class="cell">
+                    <div class="col s12 m6 two">
+                        <div class="cell center-align">
                             <div class="wrapper">
                                 <p class="content">
                                     I make websites and applications using a variety of languages and frameworks.
@@ -23,8 +23,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12 three">
-                        <div class="cell">
+                    <div class="col s12 m6 three">
+                        <div class="cell center-align">
                             <div class="wrapper">
                                 <p class="content">
                                     Here are some tools I use.
@@ -32,8 +32,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12 four">
-                        <div class="cell">
+                    <div class="col s12 m6 four">
+                        <div class="cell center-align">
                             <div class="wrapper">
                                 <div class="tech-row-1">
                                     <img src="./assets/rails.png" alt="rails" />
@@ -48,8 +48,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12 five">
-                        <div class="cell">
+                    <div class="col s12 m6 five">
+                        <div class="cell center-align">
                             <div class="wrapper text-center">
                                 <p class="content">
                                     You can contact me here.
@@ -58,8 +58,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12 six">
-                        <div class="cell">
+                    <div class="col s12 m6 six">
+                        <div class="cell center-align">
                             <div class="wrapper text-center">
                                 <p class="content">
                                     Or find me here
@@ -72,8 +72,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 col-sm-12 col-xs-12 seven">
-                        <div class="cell text-center">
+                    <div class="col s12 m12 seven">
+                        <div class="cell center-align">
                             <img src="./assets/icarus.png" alt="icarus" class="icarus" />
                             <p class="content">
                                 Personal apps I'm working on.
@@ -85,12 +85,14 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
 <script>
     export default {
-        
+
     }
 </script>
 
@@ -100,7 +102,7 @@
        
     }
     .container-fluid {
-        margin: 0 2em 2em 2em;
+        margin: 2em 2em 2em 2em;
     }
     .cell {
         height: 18em;
@@ -115,12 +117,14 @@
     .logo {
         width: 75px;
         height: 75px;
-        margin-bottom: 2.5em;
+        margin-bottom: 1em;
     }
     .one {
         background-color: #788585;
         color: #D3D5D7;
-        text-align: center;
+    }
+    .one.wrapper, p  {
+        font-size: 1.5em;
     }
     .two {
         background-color: #CCDAD1;
@@ -169,6 +173,7 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover; 
+        position: relative;
     }
     .seven .content {
         color: white;

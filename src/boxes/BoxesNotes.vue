@@ -145,7 +145,7 @@
             window.removeEventListener('scroll', this.handleScroll);
         }
     }
-
+    
     $(window).on("scroll", function() {
         $("#navbar").css("top", Math.max(0, 20 - $(window).scrollTop()));
     });

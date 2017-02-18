@@ -1,20 +1,22 @@
 <template>
     <div>
-        <header>
-            <app-nav></app-nav>
-            
-            <div class="header-note" v-if="!$store.state.user">
-                <transition name="fade">
-                    <p><em>A personal note repository for writers and creatives.</em></p>
-                </transition>
-            </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <header>
+                    <div class="header-note center-align" v-if="!$store.state.user">
+                        <transition name="fade">
+                            <p><em>A personal note repository for writers and creatives.</em></p>
+                        </transition>
+                    </div>
 
-            <div class="header-note" v-if="$store.state.user">
-                <transition name="fade">
-                    <p v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></p>
-                </transition>
+                    <div class="header-note center-align" v-else-if="$store.state.user">
+                        <transition name="fade">
+                            <p v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></p>
+                        </transition>
+                    </div>
+                </header>
             </div>
-        </header>
+        </div>
 
         <boxes-notes></boxes-notes>                        
 
@@ -102,17 +104,27 @@
             'edit-note': EditNote
         }
     }
+
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
 </script>
 
 <style scoped>
+    .parallax {
+        background: url('../assets/desk1.png') no-repeat center center fixed;
+        background-size: cover;
+    }
     header {
         width: 100%;
+        height: 20em;
     }
     .header-note {
-        text-align: center;
-        width: 60%;
-        margin: 4em auto;
+        width: 100%;
+        margin-top: 4em;
         font-size: 1.5em;
+        color: white;
+        position: fixed;
     }
     .fade-enter {
         opacity: 0;

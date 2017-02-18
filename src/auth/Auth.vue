@@ -183,6 +183,7 @@
         background-color: white;
         color: #007EA7; 
         font-weight: bold;
+        margin-left: 5em;
     }
     .sign-up {
         border: 2px solid #007EA7;
