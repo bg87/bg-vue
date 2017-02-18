@@ -104,16 +104,11 @@
             'edit-note': EditNote
         }
     }
-
-    $(document).ready(function(){
-      $('.parallax').parallax();
-    });
 </script>
 
 <style scoped>
     .parallax {
-        background: url('../assets/desk1-min.png') no-repeat center center fixed;
-        background-size: cover;
+        background-color: #7293A0;
     }
     header {
         width: 100%;
@@ -124,7 +119,6 @@
         margin-top: 4em;
         font-size: 1.5em;
         color: white;
-        position: fixed;
     }
     .fade-enter {
         opacity: 0;
