@@ -36,7 +36,7 @@ router.get('/', function(req, res) {
         Note.find({'user': user._id}, function(err, notes) {
             if(err) {
                 return res.status(500).json({
-                    title: 'Note not found',
+                    title: 'Notes not found',
                     error: err
                 });
             }

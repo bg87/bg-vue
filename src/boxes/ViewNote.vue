@@ -4,8 +4,8 @@
             <div class="nav">
                 <a class="closebtn" @click="closeNoteView()">&times;</a>
                 <div class="navRight">
-                    <i class="fa fa-pencil-square-o" data-toggle="tooltip" title="edit" @click="openEditNoteModal"></i>
-                    <i class="fa fa-trash" data-toggle="tooltip" title="delete" @click="openDeleteNoteModal"></i>
+                    <i class="small material-icons" data-toggle="tooltip" title="edit" @click="openEditNoteModal">mode_edit</i>
+                    <i class="small material-icons" data-toggle="tooltip" title="delete" @click="openDeleteNoteModal">delete</i>
                 </div>
             </div>
         </div>

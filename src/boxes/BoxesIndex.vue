@@ -11,7 +11,11 @@
 
                     <div class="header-note center-align" v-else-if="$store.state.user">
                         <transition name="fade">
-                            <p v-if="randomNote"><em>{{ randomNote.content.substring(0,200) }}</em></p>
+                            <p v-if="$store.state.randomNote">
+                                <em>
+                                    {{ $store.state.randomNote.content.substring(0,200) }}
+                                </em>
+                            </p>
                         </transition>
                     </div>
                 </header>
@@ -88,13 +92,6 @@
                     this.$store.state.userNotes = notes;
                 }
             }
-        },
-        created()  {
-            // Reset randomNote every two minutes
-            this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
-            window.setInterval(() => {
-                this.randomNote = this.notes[Math.floor(Math.random() * this.notes.length)];
-            }, 120000);
         },
         components: {
             'boxes-notes': BoxesNotes,

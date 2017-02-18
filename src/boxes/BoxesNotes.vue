@@ -16,22 +16,22 @@
         </div>
 
         <div class="layout" v-if="$store.state.user">
-            <div class="navbar">
-                <ul v-if="$store.state.user" class="cener-align">
+            <div class="navbar z-depth-3">
+                <ul v-if="$store.state.user" class="center-align">
                     <li data-toggle="tooltip" 
                         title="new note" 
                         @click="newNote">
-                        <i class="small material-icons">note add</i>
+                        <i class="small material-icons">note_add</i>
                         </li>
                     <li @click="shuffle"
                         data-toggle="tooltip"
-                        title="shuffle notes" ><i class="small material-icons">shuffle</i></span></li>
+                        title="shuffle notes"><i class="small material-icons">shuffle</i></li>
                     <li @click="newest"
                         data-toggle="tooltip"
-                        title="newest first" ><i class="small material-icons">keyboard arrow up</i></span></li>
+                        title="newest first"><i class="small material-icons">keyboard_arrow_up</i></li>
                     <li @click="oldest"
                         data-toggle="tooltip"
-                        title="oldest first" ><i class="small material-icons">keyboard arrow down</i></span></li>
+                        title="oldest first"><i class="small material-icons">keyboard_arrow_down</i></li>
                 </ul>
                 <div class="search">
                     <input type="text" v-model="searchText" placeholder="search">
@@ -46,7 +46,7 @@
                     <li v-for="(note, index) in $store.state.userNotes" :key="index">
                         <div class="card">
                             <div class="inner-card">  
-                                <p @click="openNoteView(note)">{{ note.content }}</p>
+                                <p @click="openNoteView(note)" href="#viewNote">{{ note.content }}</p>
                             </div>
                             <div class="tag">
                                 <a @click="searchTag(note.tag)">{{ note.tag }}</a>
@@ -164,25 +164,25 @@
     }
     .navbar {
         background-color: white;
+        border-radius: 0;
         width: 85%;
         margin: auto;
-        padding: 5px;
         display: inline;
     }
     .navbar ul {
         text-align: center;
     }
     .navbar li {    
-       font-size: 30px;
         cursor: pointer;
         display: inline;
         margin-right: 1em;
     }
     .search {
         text-align: center;
+        margin-bottom: 1em;
     }
     .search input {
-        width: 30em;
+        width: 75%;
         margin: auto;
     }
     .search button {
@@ -194,6 +194,8 @@
     .sticky {
         width: 100%;
         position: fixed;
+         background-color: #7293A0;
+         color: white;
         top: 0;
         margin: 0;
         z-index: 100;

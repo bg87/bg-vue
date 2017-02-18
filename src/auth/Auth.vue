@@ -110,15 +110,16 @@
                         localStorage.setItem('userId', response.body.userId);
                         this.$store.state.user = true;
                         this.flashMessage();
-                        // Get the user's notes
-                        this.$http.get(this.$store.state.serverURL + '/notes' + token)
-                            .then((response) => {
-                                console.log('response', response.body);
-                                this.$store.state.userNotes = response.body.notes;
-                                this.flashMessage();
-                            }, (error) => {
-                                console.log(error);
-                            });
+                        // Set notes in store
+                        this.$store.state.userNotes = response.body.notes
+
+                        // Reset randomNote every two minutes
+                        let notes = this.$store.state.userNotes;
+
+                        this.$store.state.randomNote = notes[Math.floor(Math.random() * notes.length)];
+                        window.setInterval(() => {
+                            this.$store.state.randomNote = notes[Math.floor(Math.random() * notes.length)];
+                        }, 60000);
                     }, (response) => {
                         console.log('Auth failed');
                     });

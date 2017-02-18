@@ -40,10 +40,11 @@
                             &times
                         </a>
                         
-                        <a class="saveNote fa fa-floppy-o"
+                        <a class="saveNote"
                                 @click.prevent 
                                 @click="saveNote" 
                                 type="submit">
+                            <i class="small material-icons">save</i>
                         </a>
                     </div>
                 </div>

@@ -34,8 +34,8 @@
             signOut() {
                 // clear local storage
                 localStorage.clear();
+                this.$store.state.userNotes = '';
                 this.$store.state.user = false;
-
             }
         }
     }
