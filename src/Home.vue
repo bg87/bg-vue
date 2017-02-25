@@ -79,7 +79,7 @@
                                 Personal apps I'm working on.
                             </p>
                             <router-link to="/boxes" class="app-links">Boxes app</router-link>
-                            <router-link to="/notebook" class="app-links">Notebook app</router-link>
+                            <router-link to="/key" class="app-links">Key app</router-link>
                         </div>
                     </div>
                 </div>

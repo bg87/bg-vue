@@ -7,13 +7,13 @@ import { routes } from './routes';
 import Home from './Home.vue';
 import Nav from './Nav.vue';
 import Boxes from './boxes/BoxesIndex.vue';
-import Notebook from './notebook/NotebookIndex.vue';
+import Key from './key/KeyIndex.vue';
 import { store } from './store/store';
 
 Vue.component('app-nav', Nav);
 Vue.component('app-home', Home);
 Vue.component('app-boxes', Boxes);
-Vue.component('app-notebook', Notebook);
+Vue.component('app-key', Key);
 
 Vue.use(VueRouter);
 Vue.use(VueResource);

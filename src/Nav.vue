@@ -6,7 +6,7 @@
                     <ul>
                         <li><router-link to="/boxes"><i class="medium material-icons">note</i></router-link></li>
                         <li><router-link to="/"><i class="medium material-icons">home</i></router-link></li>
-                        <li><router-link to="/notebook"><i class="medium material-icons">book</i></router-link></li>
+                        <li><router-link to="/key"><i class="medium material-icons">vpn_key</i></router-link></li>
                     </ul>
                 </div>
                 <ul class="right">
