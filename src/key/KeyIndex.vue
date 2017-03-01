@@ -1,18 +1,42 @@
 <template>
     <div class="main">
-        <h3 class="center-align">Nothing to see here yet.</h3>
+        <div class="container">
+            <div class="align center search">
+                <form>
+                    <div class="input-field">
+                        <select materialize="material_select"
+                            v-model="key"
+                            class="browser-default">
+                            <option v-for="note in chromatic">{{note}}</option>
+                        </select>
+                        <label v-if="key === ''">Pick a key</label>
+                    </div>
+                    <button @click="setKey()" class="btn" type="button">GO!</button>
+                </form>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    import { keyMixin } from './keyMixin';
+
     export default {
-        
+        mixins: [keyMixin]
     }
 </script>
 
 <style scoped>
-    h3 {
-        margin-top: 5em;
-        font-weight: 100;
+    form {
+        margin-top: 25%;
+    }
+    button {
+        margin-top: 10%;
+    }
+    label {
+        margin-left: 3em;
+    }
+    select {
+        font-weight: bold;
     }
 </style>

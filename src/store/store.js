@@ -61,6 +61,7 @@ export const store = new Vuex.Store({
                     content: "Kogi tbh venmo, tilde flannel wayfarers etsy. Hammock marfa swag humblebrag tote bag.",
                     tag: "Tech"
                 }
-            ]
+        ]
+
     }
 });
