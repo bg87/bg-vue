@@ -6,13 +6,10 @@ export const keyMixin = {
         }
     },
     methods: {
-        setKey() {
-            
-        },
-        major() {
+        major(key) {
 
         },
-        minor() {
+        minor(key) {
 
         }
     }

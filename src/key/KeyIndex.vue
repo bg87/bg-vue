@@ -22,6 +22,17 @@
     import { keyMixin } from './keyMixin';
 
     export default {
+        data() {
+            return {
+                key: ''
+            }
+        },
+        methods: {
+            setKey() {
+                this.$store.state.key = this.key;
+                this.$router.push('/overview');
+            }
+        },
         mixins: [keyMixin]
     }
 </script>
