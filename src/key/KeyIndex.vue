@@ -30,7 +30,9 @@
         methods: {
             setKey() {
                 this.$store.state.key = this.key;
-                this.$router.push('/overview');
+                if(this.$store.state.key != '') {
+                    this.$router.push('/overview');
+                }
             }
         },
         mixins: [keyMixin]

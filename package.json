@@ -20,6 +20,7 @@
     "mongoose": "^4.7.5",
     "mongoose-unique-validator": "^1.0.3",
     "path": "^0.12.7",
+    "tonal-key": "^0.69.0",
     "vee-validate": "^2.0.0-beta.18",
     "vue": "^2.1.0",
     "vue-resource": "^1.0.3",
