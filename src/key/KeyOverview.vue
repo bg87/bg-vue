@@ -25,13 +25,13 @@
 
 <style scoped>
     .main {
-        background-color: black;
+        background-color: #7293A0;
         margin: 0;
         padding: 0.5em 0.3em 0.3em 0.3em;
     }
     .main p {
-        margin: 0;
         color: white;
+        margin: 0;
         font-size: 1.5em;
     }
     section {

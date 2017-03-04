@@ -43,9 +43,14 @@
 
 <style scoped>
     .nav-wrapper {
-        background-color: #2C3D55;
+        background: rgba(226,226,226,1);
+        background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.99) 16%, rgba(254,254,254,0.95) 76%, rgba(209,209,209,0.94) 100%);
     }
     a {
         font-weight: bold;
+        color: #788585;
+    }
+    i {
+        color: #788585;
     }
 </style>

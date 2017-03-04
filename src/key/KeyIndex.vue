@@ -40,8 +40,13 @@
 </script>
 
 <style scoped>
-    form {
-        margin-top: 25%;
+    .main {
+        background-color: #7293A0;
+        height: 100vh;
+        padding-top: 15%;
+    }
+    div {
+        margin-top: 0;
     }
     button {
         margin-top: 10%;
